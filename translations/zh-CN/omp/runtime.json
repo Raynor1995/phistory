@@ -2725,6 +2725,13 @@
       "text": "加载现有脚本；在后续单元格中复用其定义",
       "thinking_budget": 4096
     },
+    "39333ebd4d051453e20360388b524ba3cc667b8e18197f269816484549604407": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天：2026-10-11；当前工作目录：'$PHISTORY_WORKSPACE'。不要在回复中重复此信息。",
+      "thinking_budget": 4096
+    },
     "394d9c7ed38fcf1597c8a46e45a203efd4f7627fa07780aab9c41040597c6dde": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
