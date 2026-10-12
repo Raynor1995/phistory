@@ -5661,6 +5661,13 @@
       "text": "探索",
       "thinking_budget": 4096
     },
+    "79f3cfc5253015fc52699c04d68fa147ef49bf9e93c9c0acf24a574cd3d52620": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天是 2026-10-12；当前工作目录为 '$PHISTORY_WORKSPACE'。不要在回复中重复此信息。",
+      "thinking_budget": 4096
+    },
     "7a074fc2db4189047bb3ed337e93f011791bf7fcca42bd424e6aec4f8a01bd61": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
