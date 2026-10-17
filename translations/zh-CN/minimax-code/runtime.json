@@ -8447,6 +8447,13 @@
       "text": "返回至少有一处匹配的文件路径和行号，按修改时间排序。",
       "thinking_budget": 4096
     },
+    "cdf18efa05a86cd42773bc27fe9175ff315efce4654a3931bf4640b6b9c93597": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "主工作目录：$PHISTORY_HOME/.minimax-code/sessions/mvs_8bea85d1999d4e19b6bb06b25c20ce1f/workspace",
+      "thinking_budget": 4096
+    },
     "cdf90e420c2cbc74e51c87cb5afa97dd5a23dd4e49dc8d8f0dd20b351b9446bf": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
