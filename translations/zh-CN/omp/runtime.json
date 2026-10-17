@@ -9420,6 +9420,13 @@
       "text": "绝不要让范围的起点/终点落在表达式或块的中间。",
       "thinking_budget": 4096
     },
+    "c76ed5a283d557e261f314e88685f63dd8d6f152462610cf46100ed39947e03b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天：2026-10-17；当前工作目录：'$PHISTORY_WORKSPACE'。不要在回复中重复此信息。",
+      "thinking_budget": 4096
+    },
     "c7a1bfc17168b16f7f94371892a215c2c8115910279d1cabf5be7780c0741a02": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
