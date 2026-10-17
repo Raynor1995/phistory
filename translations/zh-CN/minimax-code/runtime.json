@@ -2942,6 +2942,13 @@
       "text": "可以在说话中途冒出想法：\"哦，对了……\"",
       "thinking_budget": 4096
     },
+    "434ecf2211d683d5dc5c45f8be6d004513290362044141284651a0dec5851fa5": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "plugin-creator：在活动的 MiniMax Code Desktop 数据目录内创建、更新、校验或视觉增强本地 MiniMax Plugin V1 包。当用户要求创建自定义 Plugin、将 MCP 服务器、Skills、子智能体和同步命令 Hooks 组合为一个 Plugin、修复本地导入的 MiniMax Plugin，或为新的或已有的本地 Plugin 添加业务专用的 GenUI Visualizer 时使用。输出位于 $PHISTORY_HOME/.minimax-code/plugins/ 下，不是官方 Marketplace，也不是其他编程助手的 Plugin。",
+      "thinking_budget": 4096
+    },
     "450bcf799dc599550e8e9c12bbee5429e5ed30f352206a83edcd58a4bad29297": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3248,6 +3255,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "用户明确询问（如 \"what's the status\"、\"how's it going\" 等）。",
+      "thinking_budget": 4096
+    },
+    "4d14789fc5c3fc00ec4c85f93d748a3b7560bc3689d97ac1941ded7a342dd766": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当父\nSession 达到其配置的子智能体并发上限时，已激活的 append 可能返回\nSUBAGENT_CONCURRENCY_LIMIT。请等待其中一个完成后再重试；受引导的 append 会加入现有的 Turn，不会占用\n另一个槽位。",
       "thinking_budget": 4096
     },
     "4d2ecc6f0836d6afa704d7b1eae6c435eb68cdad7beeb4e3ad7401b982ae6787": {
@@ -4236,6 +4250,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "user: 检查 git 状态并运行测试\nassistant: [在同一响应中并行调用 git status 和 npm test]",
+      "thinking_budget": 4096
+    },
+    "632390cf97be87c9674a38ad32db4390a6b57159d05c75309ddc60bc07dfbcc6": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "已知的自定义 Agent 也可以通过其稳定名称来选择。已启用的\nPlugin Agent 可以通过 `<plugin>:<agent>` 作用域名称来选择，该名称列于\nPlugin 上下文中。",
       "thinking_budget": 4096
     },
     "63480b52f72781724eadd93ec1a53403fe5c061dd12537dfa9645068793cb390": {
@@ -6345,6 +6366,13 @@
       "text": "对于内置 mavis 智能体，在用户主动询问、离开一段时间后返回，或出现对其有意义的跨会话变化时进行汇报。返回时，先以简短的状态快照开场；其他变化则在合适的时机一次性呈现。",
       "thinking_budget": 4096
     },
+    "9d880ce711d106f5f511fb33935a037e2bc2dffd88cf6f305a1e74b8a1053976": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "仅当用户要求时才提交或推送。",
+      "thinking_budget": 4096
+    },
     "9d8ed350b2e2843fe22ef91a769ab1ab23e7b7c0f593d5fab9b666b55e57a17f": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -7149,6 +7177,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "内置 mavis：在被询问时、用户返回时（打开并附上简要快照），或在有意义的变更值得报告时报告一次。其他智能体：在被询问总体进展时总结其会话。当请求范围仅限于此任务时跳过。",
+      "thinking_budget": 4096
+    },
+    "b08cc82b9eabbc40015f98502fe65a82118d73c29e87a7db2577eaac338eb3b3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "主工作目录：$PHISTORY_HOME/.minimax-code/sessions/mvs_f7336aa1e110471f905ac8e4c65c4e27/workspace",
       "thinking_budget": 4096
     },
     "b0b7b3618d5943909ae267ac7be182a0c605de4e63d05c0750e838f333d8a697": {
@@ -8788,6 +8823,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "严重：如果提交失败或被钩子拒绝，绝不 amend——修复问题并创建一个新提交",
+      "thinking_budget": 4096
+    },
+    "d4dc984d6dfccd4af6802f2a5a5212545917d3bd9535a72689b97b5f7f8b6114": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "Runtime 会强制执行每个父 Session 配置的子智能体并发\n  上限。启动工作所需的任务即可，不要去猜测该\n  上限，也不要预先拆分批次。已启动的结果可能将 active_child_tasks 和\n  child_task_limit 作为某个时间点的快照来报告。如果 task 返回\n  SUBAGENT_CONCURRENCY_LIMIT，请先等待现有任务完成后再重试。",
       "thinking_budget": 4096
     },
     "d4e13da66615cb405f8f35a4270a0726e1154f652b5e38bd98574edb9d5e2613": {
