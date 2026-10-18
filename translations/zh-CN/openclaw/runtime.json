@@ -462,6 +462,13 @@
       "text": "使用 Perplexity Search API 搜索网页。返回结构化结果（标题、URL、摘要），便于快速调研。支持按域名、地区、语言和时效性过滤。",
       "thinking_budget": 4096
     },
+    "08ebebbcaea4c8d011cc93e8c15d5da614e7a0f4a9277aba531d1f0b3ddf30fb": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "`skill_workshop`编辑你习得的技能：此用户重复任务的操作流程，让你不必每次从头摸索。当你使用的某个习得技能有误或不完整时，查看它并修正误导性的步骤。在一项用户会重复的艰苦多步骤工作完成后，保存可行的流程：修补覆盖它的技能，或新建一个。关于某个代码库的知识应放在该仓库的文档或 AGENTS.md 中，而不是习得技能。每次更改都保留之前的版本。当用户在 💾 Learned 通知之后立即说 undo 时，他们指的就是那次技能更改：恢复指定的技能；若通知说它是新建的，则归档它。\n用户自有的技能（仓库或工作区 `skills/`、`.agents/skills/`、已配置的技能目录）是普通文件：被要求时直接编辑它们，绝不通过 skill_workshop。",
+      "thinking_budget": 4096
+    },
     "08fcd30f35cd58dea19274854f69a0d17019d3b2c1c802344aab633f9efe84a4": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -2251,6 +2258,13 @@
       "text": "返回围绕此消息 id 的历史。忽略 offset；limit 仍会约束该窗口。",
       "thinking_budget": 4096
     },
+    "2a890850c491ab60a1413651c3dc270dc1c7cb40edd2feee5d93698f34e0e8a4": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "经策略批准的 MCP 和客户端工具也可以通过搜索发现。\n使用 tool_search 获取紧凑的输入签名，或使用 tool_describe 获取完整 schema。延迟工具的名称不能直接调用。调用 tool_call，把结果的 id 或名称放入 id，所有工具参数放入 args。即使其他指导直接点名某个延迟工具，也使用这个包装器。\nAGENTS.md 的 Tools 部分指导用法；它从不授予可用性。\n支持网页搜索但尚未配置。使用 `openclaw configure --section web`或 Settings → Ask OpenClaw 进行设置；配置完成前 `web_search`不可用。\n长时间等待：不要快速轮询。使用 exec 的 yieldMs 或 process(poll, timeout=<ms>)。\n默认直接执行工作。仅当并行执行或独立审查能带来具体收益时，才委派有边界的独立任务。相互依赖的步骤保持在同一负责人处。\n`sessions_spawn`：上下文干净 => `context:\"isolated\"`；需要对话记录 => `context:\"fork\"`。遵循已接受的完成模式。\n一旦适合委派，就使用隐藏子智能体，除非用户需要一个独立的、可单独操控的会话。\n同一工作被第 3 次提出：先完成它，然后提供一个例行程序。先检查 `automations`列表；绝不重复已有的。\n升级 = 用平实的语言重述日程+任务，得到同意，创建它（交付默认值在此），然后强制 `run`一次作为可见测试；测试失败 => 说明情况并删除它。\n绝不循环轮询 `subagents list`/`sessions_list`。播报子智能体：用 `sessions_yield`等待。状态仅在按需/干预/调试/请求时提供。\n被问及不在上下文中的其他聊天/群组/会话：先检查 `sessions_list`/`sessions_search`，再声称无法访问。",
+      "thinking_budget": 4096
+    },
     "2a938b584f64693cc24cba679e582acb987a5f4734fcced85f339d4cf2ca6391": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3031,6 +3045,13 @@
       "text": "已配对的 Android 节点 ID 或显示名称。当恰好只有一个已连接且支持 mobileUI 的节点时，可省略。",
       "thinking_budget": 4096
     },
+    "399be64f280d47e56aefc1f479b5d2f915ccab0572223948d595e1bc06ca3264": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "preserved",
+      "text": "Runtime: agent=main | session=agent:main:main | host=runnervm8k3b6 | repo=$PHISTORY_HOME/.openclaw/workspace | os=Linux 6.17.0-1022-azure (x64) | node=v24.22.0 | active_node=unknown | active_node_identity=unknown | model=phistory/phistory-dummy | default_model=phistory/phistory-dummy | shell=bash",
+      "thinking_budget": 4096
+    },
     "39b3376356fb21a86c47f2f780e75630bd79efb8f49bbee1c5ea7ee7e0b9adb6": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3705,6 +3726,13 @@
       "text": "按绝对路径从配对节点获取文件。对图像 MIME 类型返回图像内容块，将小文本文件（≤8 KB）内联为文本内容，其余内容则保存到网关媒体存储之下，并给出可传给 file_write 或其他工具的路径。可用于截图、照片、收据、日志、源文件。与 file_write 配合可将文件从一个节点复制到另一个节点（无需 exec/cp 外壳调用）。需要操作员选择启用：gateway.nodes.allowCommands 必须包含 'file.fetch'，且 plugins.entries.file-transfer.config.nodes.<node>.allowReadPaths 必须匹配该路径。未配置策略时，所有调用都会被拒绝。",
       "thinking_budget": 4096
     },
+    "453a5d84c0139d830cae8f6f50e213a329c5f00b9b8dd7cc5fd1080f8702b40a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "plugins (core)：检查、搜索、从官方目录或 ClawHub 安装、启用、禁用、卸载或重载插件。编辑本地插件文件后，使用 reloadAndResume 结束此 t...",
+      "thinking_budget": 4096
+    },
     "4546ac2fd593659c9ab56f92282888ae275fd1c50a5b538e12858a8a56b2b575": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3829,6 +3857,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "act 的种类；批量时使用 actions。",
+      "thinking_budget": 4096
+    },
+    "47c78b0efd37912f39756ac0825f8c467ae1db31f2ccdcef6b8e3c6d10b6165a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "立即启动独立服务；Stop 请求后仍继续运行。普通工作使用 yieldMs。timeoutSeconds 适用。",
       "thinking_budget": 4096
     },
     "47d01682e73468ac585d88b4ecad976c25475bfa251d312ba9a26e862cee56f0": {
@@ -4487,6 +4522,13 @@
       "text": "以毫秒为单位的可选起始锚点（kind=every）",
       "thinking_budget": 4096
     },
+    "52d508cf282fe665974a6c686a52c0fd81c91c2eef467d4b5d5052c54368cec2": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "sessions_send (core)：按 sessionKey/label 在此 Gateway 上运行一个允许的会话，或按 agentId 运行一个已配置的本地智能体；sessionKey 与 label 冗余时以 sessionKey 为准。显式的逐智能体发送目的地可以 pe...",
+      "thinking_budget": 4096
+    },
     "52df3d9da113d3740ffda88cf2a2c8f4ef5b7a7629a3529d8094bf28de6bb333": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -4695,6 +4737,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "[Mon 2026-08-31 07:32 UTC] 用一句简短的话回复。",
+      "thinking_budget": 4096
+    },
+    "56b0b7678dd8d64bf3cfb86f2517f7a23c5dd121f2eca39ed507091ef26e7b3f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "[Sun 2026-10-18 21:47 UTC] 用一个短句回复。",
       "thinking_budget": 4096
     },
     "56d301261d4a74e4688055b92ffe1d09ee83af0629f4594f1516e8df6afd1226": {
@@ -6740,6 +6789,13 @@
       "text": "<description>使用 Gemini CLI 进行一次性问答、摘要和生成。</description>",
       "thinking_budget": 4096
     },
+    "7c063f1b499be9ace3c1064a780a6912fbcda747601b3db81fbe0d72cd6123f3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "`Theme`、`Creature`和 `Vibe`在 `openclaw agents set-identity`读取此文件写入智能体配置时，都会汇入同一个生效身份值，优先顺序依次为（设置了 `Theme`则优先，其次是 `Creature`，再次是 `Vibe`）。CLI 将身份写入智能体配置；Gateway 身份更新可能会把 `Name`、`Theme`、`Emoji`和 `Avatar`写回此文件。`Creature`和 `Vibe`是只读输入。",
+      "thinking_budget": 4096
+    },
     "7c082930d9e37e3144b2aaf428053673a1242f04879112c1ebe17e4b75540b93": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -7117,6 +7173,13 @@
       "text": "conversations_send (core)：直接通过来自 conversations_list 的 conversationRef 发送。这会执行渠道投递；不会在背后的会话中运行本地智能体。",
       "thinking_budget": 4096
     },
+    "83a8de1c7b3bc7b017a440f337e299c1ff9fb0b003a2212a6057872058c21892": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "立即运行 shell；支持后台延续。已完成的调用直接返回命令输出。仅当 exec 报告 running 并带有 sessionId 时才使用 process；仅有输出文本不是进程句柄。长时间运行：启用时在完成唤醒并出现输出/失败时自动唤醒；否则由 process 确认完成。省略 host 以使用会话配置的主机。提醒/跟进不要用 sleep 循环；使用 automations。TTY CLI/UI/编码智能体：pty=true。为包含 shell 元字符的参数加引号，包括带 `?`或 `&`的 URL 查询字符串。",
+      "thinking_budget": 4096
+    },
     "83be4b1eb6571ad7f2f3850c0dca9a3e04693838103eb5fb20d850c96427d39c": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -7339,6 +7402,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "列出可见会话，可按类型、近期活动和最后消息进行可选筛选。在调用 sessions_history 或 sessions_send 之前，可用此工具找到目标会话。",
+      "thinking_budget": 4096
+    },
+    "87f9019cd8a967b4759614661e2c2c921a6a3d8fbcc63d8ffbb86a659e0c7b49": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "省略/auto：继承已配置的主机（网关）。",
       "thinking_budget": 4096
     },
     "87fe3aa3eb6e0a0ccb95c18ab06ee408eb2fe7978aa6fadd50ab5a481f31a94b": {
@@ -7926,6 +7996,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "你刚检查过，还不到 30 分钟",
+      "thinking_budget": 4096
+    },
+    "9270d0ec73beec044e54009752366c81219fe5a1ffe2aee8764af627e9a56e88": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "返回普通命令句柄前等待的毫秒数；默认 10000。",
       "thinking_budget": 4096
     },
     "928152ac0f34f7ca1f498ca1509f58a63807ee79dcff19d02e103d65f835e66d": {
@@ -8640,6 +8717,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "wake: 发送唤醒事件（需要 text，可选 mode）",
+      "thinking_budget": 4096
+    },
+    "9ced06cf069843c616228f7635ce9a658e7f6f9b3df4fc427f4bf0309f39833a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "skill_workshop (core)：你习得的技能：保存为 <name>/SKILL.md的可复用流程，会在未来会话中加载。更改立即生效、有版本记录，并向用户展示。操作：lis...",
       "thinking_budget": 4096
     },
     "9d08bdc26fea84faf5a9a40fa0e8aec31510db2d5f6f1355ebf23c34c3edf9cb": {
@@ -10681,6 +10765,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "载荷类型（payload.kind）：",
+      "thinking_budget": 4096
+    },
+    "c3f389dd7530e9f0c077040623c7972a6aba9863ff4dff265d2aa3d9155ed51f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当前日期：2026-10-18\n时区：UTC\n要获取准确的当前时间，请使用 `session_status`。",
       "thinking_budget": 4096
     },
     "c3fd0beac5265d02ec6994bffaa4750dd5cbc3ea393372f0012b88c6dee5a1ae": {
@@ -12808,6 +12899,13 @@
       "text": "[缺失] 预期位置：$PHISTORY_HOME/.openclaw/workspace/HEARTBEAT.md",
       "thinking_budget": 4096
     },
+    "e7c5138fa1f25df76ed488ed545daffe70090670b5552ac636c625513f25f7d4": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "上面的表单没有 `Theme`行，你无需添加。Gateway 身份更新在同步时可能会向此文件添加 `Theme`。",
+      "thinking_budget": 4096
+    },
     "e8128589192d232dbd1b741e07fd513143229f3e094599406c54ef42bd526cd3": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -13471,6 +13569,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "图像数量 1-4。",
+      "thinking_budget": 4096
+    },
+    "f5c18a903e241103b5ecaeb334456d873f41cb25270263ce8316d16f99efd0fd": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "无来源默认值：主动发送需要 `channel`；id：feishu|googlechat|nostr|buzz|msteams|mattermost|nextcloud-talk|matrix|raft|a2a|line|zalo|clickclack|x|zalouser|sms|synology-chat|tlon|discord|imessage|irc|reef|signal|slack|telegram|twitch|whatsapp。",
       "thinking_budget": 4096
     },
     "f5ceb2f253b7581bd8536b40b52853eb00687d9aa7bc6d8da88da7ddb37dee3d": {
