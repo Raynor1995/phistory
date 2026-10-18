@@ -1682,6 +1682,13 @@
       "text": "关闭会释放受管理的标签页。它绝不会关闭 relay/CDP 附加的页面。除非 `kill: true`，否则派生的浏览器保持打开。",
       "thinking_budget": 4096
     },
+    "2143c36001d53bbd78ad44b32c6072d13f6387b6ef0f7613c534af09d92cfdce": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天是 2026-10-18；当前工作目录：'$PHISTORY_WORKSPACE'。请勿在回复中重复此信息。",
+      "thinking_budget": 4096
+    },
     "214465911b2166717331d2240482587806f414fec94f36a053f6521bca415d5d": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -9656,6 +9663,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "视频（`.mp4`、`.mov`、`.mkv`、`.webm`、`.m4v`、`.avi`、`.wmv`）需要系统 `ffmpeg`/`ffprobe`：裸读取返回预览网格及元数据（分辨率、编解码器、时长、fps）；`:412` 提取第 412 帧，`:1h5m42s`/`:90s`/`:01:23` 定位到某个时间戳",
+      "thinking_budget": 4096
+    },
+    "cc0a0c852a445c1f8e9111a7040569d98d7b8749e9e2d27b2132c8567fac0dd6": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "每次调用一个单元格；顶层状态会保留，包括跨压缩时。子智能体拥有独立的内核。\n 对于 2 个及以上相互独立的事项，使用命名的 `workpool()`；结果会自动送达。如果受阻，留下 `eval` 并调用 `wait`。\n Python：纯 Python 子进程，而非 IPython（没有 `get_ipython()`、`obj?` 或 `%matplotlib`）。诸如 `%pip`、`%load`、`%time` 和 `!cmd` 之类的魔法命令会被改写为 Python。顶层的 `await` 可用；`asyncio.run(…)` 会失败。\n JS：Bun（`Bun.file`、`Bun.write`、`Bun.$`）；顶层的 `await`/`return` 可用。\n 出错时，只重试失败的步骤；之前的步骤可能已经生效。\n 打印图像或图表时会将其附上。",
       "thinking_budget": 4096
     },
     "cc376daa196a06cc0a6407ce6d2a0b6930d902b3430e6e696706336e3f5ca954": {
