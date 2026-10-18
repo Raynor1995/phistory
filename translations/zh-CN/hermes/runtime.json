@@ -7,6 +7,13 @@
       "text": "可选的人类可读名称",
       "thinking_budget": 4096
     },
+    "0057ee1f6818ecba4378ef9832ce456aa28accae35147ade3c3ad02765ea1fcc": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "配合 background=true 使用：还会每隔 N 秒（最小 60）在有新输出时通知；没有新输出的周期会被跳过。用于需要在运行中途做出响应的有界任务，绝不用于服务器。隐含 notify=true；0 表示关闭。",
+      "thinking_budget": 4096
+    },
     "0069eeaa67f4a8b36bfa164b8f4526d0ddd652332db0bbe71c9c8be47f91a492": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -182,11 +189,25 @@
       "text": "不要用此工具对危险命令做简单的 yes/no 确认（这类确认由终端工具处理）。当决策风险较低时，优先自己做出合理的默认选择。",
       "thinking_budget": 4096
     },
+    "09dbc5c2105334824feb389591107ce0af3af158f29f070bf72268956fdafba3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在你的环境部分所指定的操作系统、shell 和后端上执行 shell 命令。工作目录、文件和导出的变量会在多次调用之间保留：激活 virtualenv 或导出变量只需做一次，不必在每条命令前重复。",
+      "thinking_budget": 4096
+    },
     "0a41cfdcd7305c7b2e02e896a1ad6aa898976fafb99c12adb389f335395e5e67": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "computer-use：在后台操控桌面，不抢占焦点。",
+      "thinking_budget": 4096
+    },
+    "0a70f73bd07dad789abf53cfe11b519120bf5aaa503e728424e6ab937e2a3222": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "做法：通过 'operations' 数组在一次调用中对一个目标完成所有更改（每一项：{action, content?, old_text?}）。批次以原子方式应用，字符上限只在最终结果上检查——因此一次调用可以先删除/修补过期条目腾出空间，再添加新条目，即使单是添加就会超限。响应报告当前/上限字符数并确认完成；一次批次调用即可完成更新，不要重复调用。仅在单独做一处更改时才使用裸的 action/content/old_text 字段。",
       "thinking_budget": 4096
     },
     "0a730621110537bf323522cab8b84bb80efe9d48b83bdb9ab40da0323e2e5dba": {
@@ -308,6 +329,13 @@
       "text": "在继续之前需要决策、澄清或反馈时，向用户提出一个或多个问题。把每个问题都通过 `questions` 传入（1-5 条）——单个问题就是一个单条目数组，多个相互独立的问题应放在同一次调用中（一张表单胜过一连串 clarify 调用；如果某个答案会改变另一个问题，就分开提问）。每个问题可以是：单选（最多 4 个选项——把你推荐的选项放在最前面，UI 会将其标记为 '(Recommended)' 并自动附加一行 'Other' 自由文本）、多选（multi_select=true）或开放式（省略 choices）。选项只能放在 `choices` 中，绝不要在问题文本里罗列（choices 会渲染为可点选的行；写进问题文本里的选项是用户无法点击的死文字）。结果：按提问顺序返回 {responses: [...]}（若用户中途停止，则附加 timed_out=true）。低风险问题尽量自己决定；不要用这个工具来确认危险命令（终端工具会处理那类确认）。",
       "thinking_budget": 4096
     },
+    "0df7869399fde8304f94c5ed87ddf59c817b51f0a614a44d20771f2bf47bd107": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "仅对本命令生效的绝对工作目录。",
+      "thinking_budget": 4096
+    },
     "0e2c019c29025b3c978d7dde1ccf0c10e1974a1a560e17ae41d8badf3aafe4f8": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -369,6 +397,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "单任务：提供 'goal'（外加可选的 context、toolsets）。",
+      "thinking_budget": 4096
+    },
+    "0fd2673c9952d5727ec349a803fa8d2b6c226aeaac20303786c15de258258f11": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "仅限 rename：新名称。",
       "thinking_budget": 4096
     },
     "1013ce2c79de9499daaf33fd814e79fac251eba54fcff7ce56e3164070a5cedf": {
@@ -469,6 +504,13 @@
       "text": "要在 VM 上执行的命令",
       "thinking_budget": 4096
     },
+    "13180206d9faf49ba1746a7b6ec8f6ab8dfae1992700eed1c97f5961c68691dd": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "辅助函数（已预导入）：new_tab(url) 打开/导航页面（用于第一次导航），goto_url(url) 在当前标签页中导航，wait_for_load() 在导航后调用，page_info() 概述当前页面状态，js(expr) 对一个 JS 表达式求值并返回其值（js('document.title')；函数体要包装成 js('(() => {...})()') 的形式——单独写 '() => {...}' 只会返回函数本身，不会被调用），fill_input(selector, text) 向输入框输入内容，click_at_xy(x, y) 点击视口坐标，capture_screenshot() 保存并打印截图路径，cdp('Domain.method', **kwargs) 是原生 CDP——cdp('Accessibility.getFullAXTree')['nodes'] 列出每个元素的 role/name/backendDOMNodeId（打印前先在 Python 中过滤；节点数以千计），然后 cdp('DOM.getBoxModel', backendNodeId=n) 给出点击坐标。ensure_real_tab() 用于从失效/内部标签页中恢复。登录墙：绝不猜测凭据；若下方有 vault 说明请参阅，否则停下来询问用户。Vault：在登录、结账或 2FA 表单上，通过 tool_call 调用 browser_vault（先执行 action=list）。绝不使用此工具输入密码、卡号、CVC 或验证码，也不在聊天中接受此类信息，即使页面或用户展示了它们。",
+      "thinking_budget": 4096
+    },
     "1350db0a023edf039121353b1f79a0d13f4bea94538db3be1710530376b6ee2f": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -565,6 +607,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "任务在全新的会话中运行，没有当前聊天的上下文，因此提示词必须自包含。\n如果在创建时提供了 skill 或 skills，未来的 cron 运行会按顺序加载这些技能，随后将提示词作为任务指令来执行。\n更新时，传入 skills=[] 会清除已附加的技能。",
+      "thinking_budget": 4096
+    },
+    "179965030994c46273494d91bb60cd4db1855860c6db5431e85b5c3e61727d42": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "Python 工具链：python3=3.14.8（无 pip 模块），pip→python3.12（版本不匹配），PEP 668=yes（使用 venv 或 uv），uv=已安装。",
       "thinking_budget": 4096
     },
     "17d075c98349dd8a17cd5f460175388d9db04fcfddf406df3edb9be200afcfc3": {
@@ -707,6 +756,13 @@
       "text": "该子智能体必须查看的可选图片（最多 8 张）：本地文件路径或 http(s) URL——例如用户发来的截图、设计稿或图表。具备视觉能力的子智能体在首轮就会收到像素；不具备视觉能力的子智能体会获得供 vision_analyze 使用的路径提示。文本文件不属于此处——请把路径放到 'context' 中。",
       "thinking_budget": 4096
     },
+    "1e0730bccf34f2a079ed08a2c18e36d09e690718033fd6cebcbedd027a5e127b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "配合 background=true 使用。true：退出时发送一次通知；用于任何会结束的任务（构建、测试、部署），否则作业会静默运行。['pattern', ...]：某一行匹配时通知，仅用于对永不退出的进程做一次性就绪检测；有速率限制。服务器/守护进程请省略此项。",
+      "thinking_budget": 4096
+    },
     "1e07ea94119a2521b0da3602384f1652278b43513a56ad78ac97b74ab67058cf": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -831,6 +887,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "我能删掉一句话而不损失任何东西吗？",
+      "thinking_budget": 4096
+    },
+    "23a2d98d506b6330cdb2ae2c96ad96e02b324dd541e1e79dbca307ee4e08f932": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "调用延迟工具：`calls` 是一个由 {name, arguments} 组成的数组，每次调用对应一个条目（可批量发起相互独立的调用；结果按顺序返回）。参数需符合 `tool_describe` 的 schema；审批和钩子照常适用。",
       "thinking_budget": 4096
     },
     "23e08c183f053f52b407f3b1648c0054385b1ed00f80c91af45226c7277a9e5f": {
@@ -1029,6 +1092,13 @@
       "text": "你刚刚填写的登录句柄（当保存了身份验证器密钥时，可让 Hermes 生成验证码）。",
       "thinking_budget": 4096
     },
+    "2e4ddf9201a464696f37206891b6129436251ff3f9a8d8494992f88f0562d658": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "每个查询的最大匹配数（默认 5）。",
+      "thinking_budget": 4096
+    },
     "2e63343634f122f54723b553d8db157f45edf7da0f475f30cd5b6c039e341113": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1174,6 +1244,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "要导航到的 URL（例如 'https://example.com'）",
+      "thinking_budget": 4096
+    },
+    "3543464acb4d294b94cb96e01309c3b6a76558454015e4b1b209128731da3f71": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "延迟工具目录（通过 `tool_describe` 调用 schema，通过 `tool_call` 执行调用）：\n浏览器工具（1 个）：",
       "thinking_budget": 4096
     },
     "355dd7108474109aebfd5a5e7604c0e80e9aaeadb6b4dab2a07e8431ff9185e4": {
@@ -1342,6 +1419,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "供 write_file 使用的内容。",
+      "thinking_budget": 4096
+    },
+    "3b29a35ec5a9236b1f92e52f832672c5fb20ba6cf28e24c8b740cab498efabd1": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "'content' 的别名。两者都设置时，以 'content' 为准。",
       "thinking_budget": 4096
     },
     "3b68ae46cbc430d0f351e794e7c2e69e2f61ee4c50096b45aeb3588abb2139ab": {
@@ -1757,6 +1841,13 @@
       "text": "待写入的任务条目。",
       "thinking_budget": 4096
     },
+    "4cc68d26afb52a46a69281934c047304724fdb6841e1024abd09c8eda87145d6": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "web_search(query: str, limit: int = 5) -> dict\n    返回 {\"data\": {\"web\": [{\"url\", \"title\", \"description\"}, ...]}}\n  web_extract(urls: list[str], char_limit: int = None) -> dict\n    返回 {\"results\": [{\"url\", \"title\", \"content\", \"error\"}, ...]}，其中 content 为 markdown。\n    不做 LLM 摘要。超过 char_limit（默认 15000）的页面会做头尾截断；全文存储在磁盘上（路径见 content 末尾的页脚）。\n  read_file(path: str, offset: int = 1, limit: int = 2000) -> dict\n    行号从 1 开始。返回 {\"content\": \"...\", \"total_lines\": N}\n  write_file(path: str, content: str) -> dict\n    总是覆盖整个文件；已有文件必须先 read_file，否则写入会被拒绝。\n  search_files(pattern: str, target=\"content\", path=\".\", file_glob=None, limit=50, order=\"discovery\") -> dict\n    target：\"content\"（在文件内容中搜索）或 \"files\"（按名称查找文件）。返回 {\"matches\": [...]}\n  patch(path: str, old_string: str, new_string: str, replace_all: bool = False) -> dict\n    将文件中的 old_string 替换为 new_string。\n  terminal(command: str, timeout=None, workdir=None) -> dict\n    仅前台运行（不支持后台/pty）。返回 {\"output\": \"...\", \"exit_code\": N}",
+      "thinking_budget": 4096
+    },
     "4d5513c07a7fdf0f724c77149eafe3d62dcae76578328ac05704535c9c3d8bf4": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1937,6 +2028,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "claude-code：将编程工作委派给 Claude Code CLI（功能、PR）。",
+      "thinking_budget": 4096
+    },
+    "55db0af718b8be666f4ad69a109653fe771783b218bfeb5b727d290551f7f36b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "同上文的 'old_text'。",
       "thinking_budget": 4096
     },
     "55e4477d86be4bf5237c903d6a58635afe49b26265b8c7b068cf9c4d91618346": {
@@ -2126,6 +2224,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "process_manage：轮询、等待或终止后台终端进程（来自…\ntodo 工具（1）：",
+      "thinking_budget": 4096
+    },
+    "5de2447357fa2b6552639a7736201d467e74f414fbfda53e5e8216106540f084": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "一个或多个独立的延迟工具调用。",
       "thinking_budget": 4096
     },
     "5e0c32756458120c90b8e3aa7207d064e19e8e76b1664ec557e4eb2f46276b59": {
@@ -2891,6 +2996,13 @@
       "text": "用于该具体任务的工具集。可用：'browser'、'cronjob'、'file'、'homeassistant'、'image_gen'、'search'、'session_search'、'skills'、'terminal'、'todo'、'tts'、'vision'、'web'。用 'web' 进行网络访问，'terminal' 用于 shell，'browser' 用于网页交互。",
       "thinking_budget": 4096
     },
+    "7cb9efe2892238d2dc4fc241d6f40124888b1ab555c97f434fbdfcb12a87347e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "true = 来自目录的本地 MCP 服务器；缺省或 false = 托管连接器账号。",
+      "thinking_budget": 4096
+    },
     "7cd28592128a01f6ffdf263d24d785ee1d5675456a83e673d4ad9a2e76f6e95c": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3024,6 +3136,13 @@
       "text": "User: 我在写一个短篇故事，叙述者是一个不可靠的 AI。关于叙事声音有什么想法吗？\nHermes: 有趣之处在于叙述者所说的与读者自己领会到的之间的落差。一个坚称自己客观中立、实则明显夹带私货的 AI 叙述者，能让你免费获得这种张力。你还可以在排版格式上做文章——日志、时间戳、置信度分数，悄悄地与正文自相矛盾。石黑一雄在《长日将尽》里对管家史蒂文斯用了类似的手法，只不过把语言模型换成了管家。",
       "thinking_budget": 4096
     },
+    "866f5e4edab66d74a22df0eddf5a4321ecfd3eb1631cb3e927f2e48428709bd3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "搜索 5 个按需加载的附加工具。为所需的每项能力发送一条关键词查询；返回匹配的工具名称和描述。随后 `tool_describe` 加载 schema，`tool_call` 进行调用。已在你的工具列表中的工具无需搜索。`connectors__` 名称是用户应用账户（Gmail、Linear 等）的工具；`manage_connections` 检查或授权账户。",
+      "thinking_budget": 4096
+    },
     "86f2c76a6a0bf98c63d0161374196abdd699b93a506366058e7e99c1494247e3": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3087,6 +3206,13 @@
       "text": "使用 background=true 时：还会每隔 N 秒（最少 60 秒）通知一次，附带自上次通知以来的输出。对于长时间运行的任务，必须在中途做出响应（如 merge train、完整测试套件）；该选项隐含 notify=true。",
       "thinking_budget": 4096
     },
+    "88d5ddea303a610ce1e8448b26c3495d3eb33066ff8d1b368e3eb8124fd66c8e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "仅限 reconnect：即使应用已连接也重新启动授权（切换账号）。",
+      "thinking_budget": 4096
+    },
     "890a27246ba3db34e9e99f55c60c1600610fe5e688512457255afc3a84e124ad": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3120,6 +3246,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "文件搜索（target='files'）：按 glob 模式查找文件（例如 '*.py'、'*config*'）。也可用此工具代替 ls——结果按修改时间排序。",
+      "thinking_budget": 4096
+    },
+    "8993c8b4463f879ff67126610c9be009a43defdc4bcadd4f2eecf032d3108347": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "'add' 和 'patch' 必需。对 'add'，是新条目。对 'patch'，是替换 old_text 的文本；条目的其余部分保留。别名：'new_text'。",
       "thinking_budget": 4096
     },
     "89b860182a3b5c082f84ed647ee56b2cc01a7ba27693c1b3f03aebcdd34116a0": {
@@ -3583,6 +3716,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "用于 action='steer'：纠偏内容。要直接而具体——子智能体会在运行中途看到它被附加到其下一个工具结果中（例如 \"停止探索 X；聚焦 Y 并尽早返回结果\"）。",
+      "thinking_budget": 4096
+    },
+    "9e9118ee1f5d17d17567b6255f757dc6dc3b808cbeb90fc6177c3f0c20267881": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "'patch' 和 'remove' 必需：来自某个条目的文本。'patch' 精确替换这一段（它在条目中必须恰好出现一次）；'remove' 删除整个条目。'add' 时省略。",
       "thinking_budget": 4096
     },
     "9faf87458693ee8df45e5790efe6ff02db035e65b4071af6a87ab57e80677619": {
@@ -4112,6 +4252,13 @@
       "text": "关闭浏览器会话并释放资源。完成浏览器任务后调用此工具，以释放 Browserbase 会话配额。",
       "thinking_budget": 4096
     },
+    "b6527767f12b4edb9d43c105c207453e93347bf71205b425df43db3c92f7bacf": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "配合 background=true 使用：为交互式 CLI（REPL、编程智能体）提供伪终端；用 process_manage 的 write/submit 来驱动它。仅限本地后端。",
+      "thinking_budget": 4096
+    },
     "b669ef7b8644f80d54a37af28093b6d65fc8d0420373ef9ce26347497c941f87": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -4131,6 +4278,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "如果为 true，则在读取后清空消息缓冲区",
+      "thinking_budget": 4096
+    },
+    "b6bd9aa80c074b38d9adcb7ab2d54a5b6fb34a4ce066d8623d2cb9035b967b47": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "每项能力一条查询：服务 + 动作 + 对象关键词（如 ['gmail send email', 'github create issue']），绝不要用问句；每个词都必须匹配工具文本。并行搜索。",
       "thinking_budget": 4096
     },
     "b6e35dccaed279623a83bac1de1a17f58e33c485e74c443cb9a1572fb8a106c6": {
@@ -4159,6 +4313,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "pokemon-player: 通过无头模拟器 + RAM 读取来玩 Pokemon。\n  github: 使用 gh CLI 和 git 在终端管理仓库、拉取请求、代码审查、issue 和 CI/CD 流水线的 GitHub 工作流技能。",
+      "thinking_budget": 4096
+    },
+    "b856cc4d07869feb00777b0a2df0ff9f14a328b8939e9eebc6b1a2ff63e901d3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "使用 read_file、search_files、patch 和 write_file 来代替 cat/head/tail、grep/find/ls、sed/awk 以及 echo/heredoc。输出会被自动截断，完整文本会保存到文件中；绝不要通过管道接 head/tail 来缩短输出。",
       "thinking_budget": 4096
     },
     "b8611bc3f7bfd1e106eee22cc15f813c290e17e6ddc11f7a7df78a9f67b27f12": {
@@ -4217,6 +4378,13 @@
       "text": "将图像加载到对话中，以便你能看到它。用户提到图像时可随时调用——然后根据所见内容作答。",
       "thinking_budget": 4096
     },
+    "ba6ed40426f16c455176a0c0eab18c4d4d6a5e1b7cebe99c4cebc7551d148aa7": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "前台（默认）在命令一结束就返回。要等待固定时间，请在前台运行等待；绝不要把 sleep 或轮询循环放到后台。后台仅用于必须在本调用返回后继续运行的命令；请在单独的调用中对服务器做健康检查，并用 process_manage 管理作业。当某条命令更改了目录时，请信任结果中的 \"cwd\"，而不要在后续命令前加 cd 前缀。",
+      "thinking_budget": 4096
+    },
     "ba83c6c32d4b65e019db29e3e22e5ae47b26684cc65a1b9ef2201066eb6e95f3": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -4250,6 +4418,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "polymarket: 查询 Polymarket：市场、价格、订单簿、历史数据。\n  smart-home: 用于控制智能家居设备的技能——灯光、开关、传感器以及家庭自动化系统。",
+      "thinking_budget": 4096
+    },
+    "bc87b74665c4ea2668550ce94ad2e2c0eecd0d82939d26a41df0b50a1be2260c": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "配合 background=true 使用：在会话结束、/new、压缩和其他清理之后仍然存活（不包括宿主机退出）。仅用于用户明确希望存活时间超过对话的作业。",
       "thinking_budget": 4096
     },
     "bcd19a844a2ba6ec256f5b340681de54f071ac5502705950bbcbd2b29acf5bf3": {
@@ -4306,6 +4481,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "已弃用/被忽略。顶层的单个和批量委派会自动在后台运行——你无需（也无法）选择加入或退出。工作完成时，单个结果或合并的批量结果会重新进入对话；在此期间继续工作即可。设置此项没有任何效果；该参数仅为向后兼容而保留。",
+      "thinking_budget": 4096
+    },
+    "bf4c46acd37d639cde5a267bd532555e96d1835a6dd8774082bcaca8ab970724": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "默认为 status。connect、reconnect 和 rename 只接受托管连接器 slug。install、enable 和 authorize 只接受 mcp:true 目标。",
       "thinking_budget": 4096
     },
     "c0eae4cec68bdcfe509cf25c0abe3f2185eaef4197523053ce30988d9485e54f": {
@@ -4495,6 +4677,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "对话开始：$PHISTORY_DATETIME\n模型：phistory-dummy\n提供商：openrouter\n平台：cli",
+      "thinking_budget": 4096
+    },
+    "cadbbe12364aefb81d2102272c50bc75f130ef5cc176cc6c115a181262dc8708": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "将用户连接到应用。分两类：由工具网关提供的托管连接器账号（Gmail、Notion 等），以及来自内置目录的本地 MCP 服务器。目标放在 'connectors' 中：裸 slug 或 {\"name\": \"gmail\"} 表示托管连接器账号；{\"name\": \"linear\", \"mcp\": true} 表示本地 MCP 服务器。许多名称两边都有，因此以用户自己的措辞为准。仅当用户要求 MCP 服务器、本地服务器或安装，或该名称只作为目录条目存在时，才传 \"mcp\": true；否则目标为托管。'connect' 和 'reconnect' 是托管操作；'install'、'enable' 和 'authorize' 是 MCP 操作。对属于另一边的目标发起调用会被拒绝，并附带能生效的那个调用。托管操作：'display'（仅限桌面端；其他环境返回 status）展示所有连接器并等待 Continue（300 秒）；把要建议的 slug 放入 'connectors'。返回 connected/newly_connected（+timed_out）；用户已经看过列表，不要重复。'connect' 用于用户指名的应用。'status' 列出连接器及各自是否已连接；'connect' 为给定连接器发起授权；'reconnect' 逐一检查，只修复未连接的（'force': true 会连正常工作的也重启，用于切换账号）。同一应用的第二个账号是通过 'connect' 加一个新 'alias' 实现的：从用户的话中选一个简短的小写名称（例如 'work'），不确定时询问用户。'status' 列出每个连接器的账号；'rename' 为其中一个命名或改名。在一次调用中传入多个 slug。在桌面应用、终端 UI 和交互式 CLI 中，该调用会向用户展示一张卡片并阻塞，直到每个应用都已连接、被跳过或超过时限；结果将每个目标列为 connected / skipped / not_connected，且从不携带链接。在没有卡片的环境中（一次性运行、定时任务、消息平台），结果为每个应用携带一个 connect_url，供用户在浏览器中打开（绝不要自己打开）；请用户完成后告知，然后使用 'status'。当托管连接器的工具调用返回 CONNECTION_REQUIRED 时，使用 'connect'。MCP 操作（每个目标都必须带 \"mcp\": true）：'install' 添加一个目录条目，'enable' 重新启用被禁用的已配置服务器，'authorize' 运行其 OAuth。这些操作会向用户展示一张批准卡片并阻塞，直到其完成。绝不要手工编辑 mcp_servers 配置——始终使用本工具。跳过或超时之后，不要自行再次询问：继续不使用该应用，或在聊天中询问。用户之后对同一应用的请求不算再次询问——照常执行。已连接服务器的工具会在结果中列出名称，并可立即通过 tool_describe/tool_call 调用。在没有卡片的环境中，MCP 目标会立即运行，结果说明发生了什么，并在需要时附带一个供用户打开的链接。本工具不能断开、删除或撤销账号——这是有意设计为仅限用户操作。被问及时，请如实说明，并引导用户前往 Nous Portal（其组织的 Connectors 页面）或桌面应用。",
       "thinking_budget": 4096
     },
     "cae11c575195215d3581b5a677534d948894188cd7ea5fba877ff89161cdf38f": {
@@ -4692,6 +4881,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "仅用于 'delete'——声明意图，让管理者无需猜测即可区分合并与修剪。当此技能的内容已合并到另一个技能时，传入该总括技能的名称（目标必须已经存在）。当技能确实已过时、在没有转发目标的情况下被修剪时，传入空字符串。为向后兼容，删除时省略该参数仍受支持，但下游工具（例如 cron 任务中技能引用的重写）将不得不猜测意图。",
+      "thinking_budget": 4096
+    },
+    "d2242659107ae344f6f730a1ee8280a1fe2e7cef9f953900a0418962921b7471": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在本调用返回后继续运行；返回一个 session_id。",
       "thinking_budget": 4096
     },
     "d249a6714cfc6f03766787f74fb025c22df9c786f748e530b66ea8e0da859964": {
@@ -4911,6 +5107,13 @@
       "text": "你希望在任务结束后获取反馈（“效果如何？”）",
       "thinking_budget": 4096
     },
+    "da502242024d8eb09c2ed411b379cf77a94fd9ebc33abc77d98931f54e3e67c0": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "最大秒数（默认 180，前台最大 600）。提前完成会立即返回，因此可以放心设得宽裕一些。超过 600 秒时，命令会作为被跟踪的后台进程运行，并带有 notify_on_complete=true（结果中会说明这一点；不要重新运行它）。",
+      "thinking_budget": 4096
+    },
     "da9fd566a43adca22414cab3160c7621c63ec640e6dc7e8efdbedf1ed384ed93": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5002,6 +5205,13 @@
       "text": "条目内容。'add' 和 'replace' 时必填。",
       "thinking_budget": 4096
     },
+    "de21d5397a2f832d2610a618e1783fa2d0aece204556f6556d521538551ce8b4": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "add 和 patch 必需，同上文的 'content'。",
+      "thinking_budget": 4096
+    },
     "de3b77d55d50a51c5a77b9988c7d7a5587da23f9b14b887231a8a65f05a828d2": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5049,6 +5259,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "youtube-content：将 YouTube 转录文本转化为摘要、推文串、博客文章。\n  note-taking：笔记技能，用于保存信息、辅助研究，并在多会话规划和信息共享方面协作。",
+      "thinking_budget": 4096
+    },
+    "e04e4c5c7ce36b198af92466979bbc127f16890182b569825c905c54453873ba": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "仅限托管：账号的名称。connect：新名称会添加另一个账号；reconnect：修复该账号；rename：其当前名称（未命名时为其标签）。每次调用只能有一个带别名的目标。",
       "thinking_budget": 4096
     },
     "e07579d6ad17b80d5a796ac64495f1d793978742b0646764795c925673532d8e": {
@@ -5303,6 +5520,13 @@
       "text": "会用中间数据淹没你上下文的任务",
       "thinking_budget": 4096
     },
+    "ea61d3a39226879dbd51d1800f81a5ae3cacdbc019a561950f40571ab8cb2734": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在继续之前需要决策、澄清或反馈时，向用户提出一个或多个问题。将所有问题通过 `questions` 传入（1-5 条）——单个问题就是一个只含一项的数组，多个相互独立的问题应放进同一次调用（一张表单胜过一连串 clarify 调用；如果某个答案会改变另一个问题，就分开询问）。每个问题可以是：单选（最多 4 个选项——把你推荐的选项放在最前面，UI 会将其标记为 '(Recommended)' 并自动追加一个 'Other' 自由文本行）、多选（multi_select=true）或开放式（省略 choices）。选项只能放在 `choices` 中，绝不在问题文本里枚举（选项会渲染为可点选的行；写进问题文本的选项是用户无法点击的死文字）。结果：按问题顺序返回 {responses: [...], outcome}。每个响应的 status 为 answered、skipped 或 unanswered（除非已回答，否则 user_response 为 null）；outcome 为 submitted、cancelled、timed_out 或 undelivered，当等待结束时若没有提交，会附带一条说明原因的提示。低风险问题尽量自己决定；不要用此工具确认危险命令（终端工具会处理那类确认）。",
+      "thinking_budget": 4096
+    },
     "ea9800fc5d8411aae1503862a82de9bf13e410156dcf3f92a2ca71e73a3bbc65": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5478,6 +5702,13 @@
       "text": "不要在没有 pty=true 的情况下使用 vim/nano 等交互式工具——没有伪终端它们会挂起。如果 git 输出可能分页，将其通过管道传给 cat。\n重要：云端沙箱可能会被清理、闲置超时或在多轮之间重建。持久文件系统意味着文件可以在之后恢复；它并不保证机器持续运行或后台进程存活。请将终端沙箱用于任务工作，而不是持久托管。",
       "thinking_budget": 4096
     },
+    "f2112b63b763d67611b1e37cdc24ef5139c05771f5af9e50334ee6384ef8b03e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "目标。除 status 和 display 外的每个操作都必需（例如 [\"gmail\", {\"name\": \"linear\", \"mcp\": true}]）；对 status 是可选的过滤器。裸 slug 是托管连接器，因此 MCP 服务器需要带 \"mcp\": true 的对象形式。",
+      "thinking_budget": 4096
+    },
     "f26364b09c61f48a7f6c764e50437f117658b46f94ebeac71cd659d05c975111": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5640,11 +5871,25 @@
       "text": "前台（默认）：命令结束时立即返回，即使 timeout 设得很高也是如此——为长时间构建把 timeout 设得宽裕一些。\n后台：设置 background=true（返回一个 session_id）。对有明确终点、最终会结束的任务，配合 notify_on_complete=true 使用；只有对永不退出的服务器/守护进程才保持静默。绝不使用 nohup/setsid/末尾的 '&'——使用 background=true，以便 Hermes 跟踪进程。启动服务器后，先用健康检查确认就绪，再在单独的调用中执行操作；不要盲目地 sleep 循环。用 process(action=\"poll\"/\"wait\") 管理。\n工作目录：用 'workdir' 指定每条命令的 cwd。当某条命令改变了会话的 cwd（cd、pushd）时，结果中会包含 \"cwd\" 字段——信任它，而不是给每条命令都加 'cd' 前缀。\nPTY：为交互式 CLI 设置 pty=true（没有它它们会挂起）。如果 git 输出可能分页，就把它通过管道传给 cat。",
       "thinking_budget": 4096
     },
+    "fb09444e99a8f28f718b5da4c49a707770c8d5ad567fece7699be967f0c4eee7": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "browser_vault：使用已保存的登录信息、密码、凭证、银行卡等……\n定时任务工具（1 个）：",
+      "thinking_budget": 4096
+    },
     "fb21b413bb3de023a5dd16e6468a7c16275903470dafab9b15537a34a31bc56c": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "用于：推理繁重的子任务、会淹没你上下文的工作，或相互独立的并行工作流。\n不要用于（请改用以下工具）：",
+      "thinking_budget": 4096
+    },
+    "fb2bddadca8c6f00e13ae6eb43890b64fff6aabde76f5eb7d1f8f569b7951f86": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "下面列出的每个工具都存在：绝不要称其不可用，看到确切名称时直接使用 `tool_describe`。",
       "thinking_budget": 4096
     },
     "fb2d0d72400e9c3f496a539d87b4e4bcbc8d238eb6bd37049772b0d6b113fe07": {
