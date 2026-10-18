@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import re
+import shlex
 import shutil
 import tarfile
 import urllib.request
@@ -132,12 +133,21 @@ def _npm_versions(agent: AgentSpec, *, include_prerelease: bool) -> list[Version
 def _install_npm(agent: AgentSpec, version: str, install_dir: Path) -> Path:
     install_dir.mkdir(parents=True, exist_ok=True)
     package_ref = f"{agent.package}@{version}"
-    run([*agent.install_command, "--prefix", str(install_dir), package_ref], timeout=INSTALL_TIMEOUT_SECONDS)
+    install_command = [*agent.install_command, "--prefix", str(install_dir), package_ref]
+    if agent.node_runtime:
+        install_command = ["npm", "exec", "--yes", f"--package={agent.node_runtime}", "--", *install_command]
+    run(install_command, timeout=INSTALL_TIMEOUT_SECONDS)
     bin_dir = install_dir / "node_modules" / ".bin"
     if not bin_dir.exists():
         raise RuntimeError(f"npm install did not create bin dir: {bin_dir}")
     if agent.node_runtime:
-        _wrap_runtime_bin(bin_dir / agent_executable(agent), agent.node_runtime, "NODE")
+        node_binary = Path(run(["npx", "-y", agent.node_runtime, "-p", "process.execPath"]).stdout.strip())
+        if not node_binary.is_file():
+            raise RuntimeError(f"Node runtime executable not found: {node_binary}")
+        runtime_link = bin_dir / "node"
+        runtime_link.unlink(missing_ok=True)
+        runtime_link.symlink_to(node_binary)
+        _wrap_runtime_bin(bin_dir / agent_executable(agent), runtime_link, "NODE")
     return bin_dir
 
 
@@ -548,21 +558,23 @@ def _is_archivable_version(version: str, *, include_prerelease: bool) -> bool:
     return "-" not in version and _PYPI_PRERELEASE_RE.search(version) is None
 
 
-def _wrap_node_bin(executable: Path, node_runtime: str) -> None:
-    _wrap_runtime_bin(executable, node_runtime, "NODE")
-
-
-def _wrap_runtime_bin(executable: Path, runtime: str, marker_name: str) -> None:
+def _wrap_runtime_bin(executable: Path, runtime: Path, marker_name: str) -> None:
     if not executable.exists():
         raise RuntimeError(f"cannot wrap missing executable: {executable}")
     marker = f"PHISTORY_{marker_name}_RUNTIME_WRAPPER"
+    previous_wrapper = None
     if not executable.is_symlink():
         try:
-            if marker in executable.read_text(encoding="utf-8", errors="ignore"):
-                return
+            contents = executable.read_text(encoding="utf-8", errors="ignore")
+            if marker in contents:
+                if f'exec "{runtime}" ' in contents:
+                    return
+                previous_wrapper = contents
         except OSError:
             pass
-    if executable.is_symlink():
+    if previous_wrapper is not None:
+        real_executable = Path(shlex.split(previous_wrapper.splitlines()[-1])[-2])
+    elif executable.is_symlink():
         real_executable = executable.resolve()
         executable.unlink()
     else:
@@ -570,7 +582,7 @@ def _wrap_runtime_bin(executable: Path, runtime: str, marker_name: str) -> None:
         if not real_executable.exists():
             executable.rename(real_executable)
     executable.write_text(
-        f'#!/bin/sh\n# {marker}\nexec npx -y "{runtime}" "{real_executable}" "$@"\n',
+        f'#!/bin/sh\n# {marker}\nexport PATH="{runtime.parent}:$PATH"\nexec "{runtime}" "{real_executable}" "$@"\n',
         encoding="utf-8",
     )
     executable.chmod(executable.stat().st_mode | 0o755)

@@ -4,10 +4,11 @@ from pathlib import Path
 
 import pytest
 
-from phistory.models import AgentSpec, VersionInfo
+from phistory.models import AgentSpec, CommandResult, VersionInfo
 from phistory.packages import (
     _find_source_root,
     _github_headers,
+    _wrap_runtime_bin,
     agent_executable,
     all_versions,
     install_agent,
@@ -52,6 +53,57 @@ def test_agent_executable_defaults_to_tap_client_and_can_be_overridden():
 
     assert agent_executable(default) == "x-tap"
     assert agent_executable(overridden) == "kimi"
+
+
+def test_npm_install_uses_configured_node_runtime(monkeypatch, tmp_path):
+    agent = AgentSpec(
+        id="openclaw",
+        display_name="OpenClaw",
+        package="openclaw",
+        tap_client="openclaw",
+        fake_env={},
+        node_runtime="node@24",
+    )
+    commands = []
+    node_binary = tmp_path / "node24"
+    node_binary.touch()
+
+    def fake_run(argv, **_kwargs):
+        commands.append(argv)
+        if argv[0] == "npx":
+            return CommandResult(tuple(argv), 0, str(node_binary), "")
+        executable = tmp_path / "install" / "node_modules" / ".bin" / "openclaw"
+        executable.parent.mkdir(parents=True)
+        executable.write_text("#!/usr/bin/env node\n", encoding="utf-8")
+
+    monkeypatch.setattr("phistory.packages.run", fake_run)
+
+    install_agent(agent, "2026.10.4", tmp_path / "install")
+
+    assert commands[0][:6] == ["npm", "exec", "--yes", "--package=node@24", "--", "npm"]
+    assert commands[0][-1] == "openclaw@2026.10.4"
+    assert commands[1] == ["npx", "-y", "node@24", "-p", "process.execPath"]
+    assert (tmp_path / "install" / "node_modules" / ".bin" / "node").resolve() == node_binary
+    wrapper = (tmp_path / "install" / "node_modules" / ".bin" / "openclaw").read_text(encoding="utf-8")
+    assert f'exec "{tmp_path / "install" / "node_modules" / ".bin" / "node"}"' in wrapper
+
+
+def test_node_runtime_wrapper_updates_cached_launchers(tmp_path):
+    real = tmp_path / "openclaw.mjs"
+    real.touch()
+    launcher = tmp_path / "openclaw"
+    launcher.write_text(
+        f'#!/bin/sh\n# PHISTORY_NODE_RUNTIME_WRAPPER\nexec npx -y "node@24" "{real}" "$@"\n',
+        encoding="utf-8",
+    )
+
+    node_binary = tmp_path / "node"
+    node_binary.touch()
+    _wrap_runtime_bin(launcher, node_binary, "NODE")
+
+    wrapper = launcher.read_text(encoding="utf-8")
+    assert f'export PATH="{tmp_path}:$PATH"' in wrapper
+    assert f'exec "{node_binary}" "{real}" "$@"' in wrapper
 
 
 def test_all_versions_filters_platform_and_prerelease_versions(monkeypatch):
