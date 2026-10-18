@@ -361,6 +361,7 @@ HERMES = AgentSpec(
     package="NousResearch/hermes-agent",
     source="github-release",
     github_release_install="editable",
+    python_version="3.14",
     tap_client="hermes",
     fake_env={
         "OPENAI_API_KEY": "phistory-fake-api-key",
@@ -407,6 +408,8 @@ KIMI = AgentSpec(
         "KIMI_TELEMETRY_DISABLED": "1",
     },
     home_profile="kimi",
+    # 1.52.0 replaces the CLI with an end-of-life notice and emits no request.
+    last_supported_version="1.51.0",
     default_variant=_default(
         (
             "--no-yolo",

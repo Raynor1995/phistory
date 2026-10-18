@@ -2,8 +2,11 @@ import io
 import tarfile
 from pathlib import Path
 
+import pytest
+
 from phistory.models import AgentSpec, VersionInfo
 from phistory.packages import (
+    _find_source_root,
     _github_headers,
     agent_executable,
     all_versions,
@@ -160,6 +163,32 @@ def test_github_release_versions_are_sorted_by_publish_time(monkeypatch):
     assert [item.version for item in all_versions(agent, include_prerelease=True)] == ["v1", "v2", "v3-beta"]
 
 
+def test_last_supported_version_bounds_latest_capture_and_backfill(monkeypatch):
+    agent = AgentSpec(
+        id="retired",
+        display_name="Retired",
+        package="owner/repo",
+        source="github-release",
+        tap_client="retired",
+        fake_env={},
+        last_supported_version="v2",
+    )
+    releases = [
+        {
+            "tag_name": f"v{number}",
+            "published_at": f"2026-05-0{number}T00:00:00Z",
+            "draft": False,
+            "prerelease": False,
+        }
+        for number in (3, 2, 1)
+    ]
+    monkeypatch.setattr("phistory.packages._github_releases", lambda _repo: releases)
+
+    assert latest_version(agent).version == "v2"
+    assert [item.version for item in versions_between(agent, "v1", "latest")] == ["v1", "v2"]
+    assert [item.version for item in all_versions(agent)] == ["v1", "v2", "v3"]
+
+
 def test_github_release_asset_versions_use_matching_asset(monkeypatch):
     agent = AgentSpec(
         id="x",
@@ -242,6 +271,7 @@ def test_install_github_release_can_use_editable_source(monkeypatch, tmp_path):
         package="owner/hermes",
         source="github-release",
         github_release_install="editable",
+        python_version="3.14",
         tap_client="hermes",
         fake_env={},
     )
@@ -261,7 +291,7 @@ def test_install_github_release_can_use_editable_source(monkeypatch, tmp_path):
 
     def fake_run(argv, **_kwargs):
         commands.append(argv)
-        install_dir = Path(argv[2]) if argv[:2] == ["uv", "venv"] else None
+        install_dir = Path(argv[-1]) if argv[:2] == ["uv", "venv"] else None
         if install_dir:
             (install_dir / "bin").mkdir(parents=True)
             (install_dir / "bin" / "python").touch()
@@ -275,8 +305,29 @@ def test_install_github_release_can_use_editable_source(monkeypatch, tmp_path):
     bin_dir = install_agent(agent, "v1", tmp_path / "install")
 
     editable = next(command for command in commands if "--editable" in command)
+    assert commands[0][2:4] == ["--python", "3.14"]
     assert Path(editable[-1]).name == "hermes-v1"
     assert (bin_dir / "hermes").exists()
+
+
+def test_github_release_source_prefers_outer_project(tmp_path):
+    outer = tmp_path / "release"
+    nested = outer / "pm"
+    nested.mkdir(parents=True)
+    (outer / "pyproject.toml").touch()
+    (nested / "pyproject.toml").touch()
+
+    assert _find_source_root(tmp_path) == outer
+
+
+def test_github_release_source_rejects_multiple_peer_projects(tmp_path):
+    for name in ("first", "second"):
+        project = tmp_path / name
+        project.mkdir()
+        (project / "pyproject.toml").touch()
+
+    with pytest.raises(RuntimeError, match="expected one Python project"):
+        _find_source_root(tmp_path)
 
 
 def test_github_headers_can_skip_auth(monkeypatch):

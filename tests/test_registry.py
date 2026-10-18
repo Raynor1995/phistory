@@ -135,6 +135,7 @@ def test_new_agents_define_install_and_capture_profiles():
     assert hermes.source == "github-release"
     assert hermes.package == "NousResearch/hermes-agent"
     assert hermes.home_profile == "hermes"
+    assert hermes.python_version == "3.14"
     assert "chat" in hermes.default_variant.run_args
     assert "-q" in hermes.default_variant.run_args
     assert "openrouter" in hermes.default_variant.run_args
@@ -142,6 +143,7 @@ def test_new_agents_define_install_and_capture_profiles():
     assert kimi.source == "github-release"
     assert kimi.package == "MoonshotAI/kimi-cli"
     assert kimi.home_profile == "kimi"
+    assert kimi.last_supported_version == "1.51.0"
     assert "--print" in kimi.default_variant.run_args
 
     assert opencode.source == "npm"

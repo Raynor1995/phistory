@@ -21,6 +21,11 @@ INSTALL_TIMEOUT_SECONDS = 1800
 
 
 def latest_version(agent: AgentSpec) -> VersionInfo:
+    if agent.last_supported_version is not None:
+        for version in all_versions(agent):
+            if version.version == agent.last_supported_version:
+                return version
+        raise RuntimeError(f"last supported version {agent.last_supported_version!r} not found for {agent.id}")
     if agent.source == "minimax-code":
         from phistory.minimax_code import latest_version as minimax_code_latest_version
 
@@ -55,7 +60,7 @@ def all_versions(agent: AgentSpec, *, include_prerelease: bool = False) -> list[
 def versions_between(agent: AgentSpec, start: str, end: str, *, include_prerelease: bool = False) -> list[VersionInfo]:
     versions = all_versions(agent, include_prerelease=include_prerelease)
     if end == "latest":
-        end = versions[-1].version
+        end = agent.last_supported_version or versions[-1].version
     start_idx = _index_of(versions, start)
     end_idx = _index_of(versions, end)
     if start_idx > end_idx:
@@ -196,7 +201,10 @@ def _install_pypi(agent: AgentSpec, version: str, install_dir: Path) -> Path:
     if install_dir.exists():
         shutil.rmtree(install_dir)
     install_dir.mkdir(parents=True, exist_ok=True)
-    run(["uv", "venv", str(install_dir)], timeout=120)
+    run(
+        ["uv", "venv", *(["--python", agent.python_version] if agent.python_version else []), str(install_dir)],
+        timeout=120,
+    )
     run(
         ["uv", "pip", "install", "--python", str(bin_dir / "python"), f"{agent.package}=={version}"],
         timeout=INSTALL_TIMEOUT_SECONDS,
@@ -248,7 +256,10 @@ def _install_github_release(agent: AgentSpec, version: str, install_dir: Path) -
     if install_dir.exists():
         shutil.rmtree(install_dir)
     install_dir.mkdir(parents=True, exist_ok=True)
-    run(["uv", "venv", str(install_dir)], timeout=120)
+    run(
+        ["uv", "venv", *(["--python", agent.python_version] if agent.python_version else []), str(install_dir)],
+        timeout=120,
+    )
     package_ref = f"https://github.com/{agent.package}/archive/refs/tags/{version}.tar.gz"
     if agent.github_release_install == "editable":
         archive_path = install_dir / "source.tar.gz"
@@ -273,6 +284,9 @@ def _install_github_release(agent: AgentSpec, version: str, install_dir: Path) -
 
 def _find_source_root(extract_dir: Path) -> Path:
     roots = [path.parent for path in extract_dir.rglob("pyproject.toml") if path.parent != extract_dir]
+    if roots:
+        shallowest_depth = min(len(path.relative_to(extract_dir).parts) for path in roots)
+        roots = [path for path in roots if len(path.relative_to(extract_dir).parts) == shallowest_depth]
     if len(roots) != 1:
         found = ", ".join(str(path) for path in roots) or "none"
         raise RuntimeError(f"expected one Python project in release archive, found: {found}")

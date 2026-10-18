@@ -63,6 +63,8 @@ class AgentSpec:
     release_asset_binary: str | None = None
     release_manifest_url: str | None = None
     github_release_install: GitHubReleaseInstall = "wheel"
+    python_version: str | None = None
+    last_supported_version: str | None = None
 
     def __post_init__(self) -> None:
         all_variants = self.capture_variants
