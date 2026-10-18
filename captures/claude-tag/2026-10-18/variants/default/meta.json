@@ -1,0 +1,36 @@
+{
+  "agent_id": "claude-tag",
+  "agent": "Claude Tag",
+  "version": "2026-10-18",
+  "variant": {
+    "id": "default",
+    "label": "Default",
+    "dimensions": {
+      "surface": "slack"
+    }
+  },
+  "requested": {
+    "surface": "slack"
+  },
+  "observed": {
+    "provider": "anthropic",
+    "model": "claude-opus-5-5",
+    "tool_count": 94
+  },
+  "published_at": "2026-10-18T08:57:24.442034+00:00",
+  "captured_at": "2026-10-18T08:57:24.442034+00:00",
+  "target": "manually imported trace",
+  "trace_redacted": true,
+  "redactions": [
+    "authorization and transport identifiers",
+    "organization, workspace, Slack, and user metadata",
+    "private memory content, session links, and email addresses",
+    "local home, memory, and scratchpad paths",
+    "captured user, assistant, tool-result, and response content"
+  ],
+  "redacted_history_message_count": 0,
+  "source": {
+    "kind": "user-provided trace",
+    "sha256": "c22450d3fd7a8637c93f16d5fbf468eb3e01228b779fa794ca3e3aca392fbfaa"
+  }
+}
