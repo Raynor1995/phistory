@@ -8573,6 +8573,13 @@
       "text": "运行 git log 命令，查看最近的提交信息，以便遵循本仓库的提交信息风格。",
       "thinking_budget": 4096
     },
+    "cff51a64811ff0248c671e5c1ab70ce12c2aa94522828582e7e02df84b36e3a4": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "主工作目录：$PHISTORY_HOME/.minimax-code/sessions/mvs_0d3cea8355d74885b5bb9ee804069cfb/workspace",
+      "thinking_budget": 4096
+    },
     "d04c68a457ec8aaa01fb4012ebe0aa157ba57de98ca13b20d352f8a1f9f1c48e": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
