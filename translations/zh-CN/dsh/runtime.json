@@ -55,6 +55,20 @@
       "text": "Services、Events、Slots、Sessions 及由它们派生的 Cordis/DSH 对象是内部活数据，并非可以转储的普通 JSON。",
       "thinking_budget": 4096
     },
+    "062210a10415f84f08dbe533d63692d8d918d624eb4afe45b8a41e7c7b48f216": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "以整秒计的固定频率间隔，至少为 60，对齐到创建时间；用 schedule_update 修改后会重新对齐到保存时间。",
+      "thinking_budget": 4096
+    },
+    "064059beba35102ed1f34c02ad0a866051ec4c84826c9b8d128fd8ebcfe8e61b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "ISO 星期几，星期一为 1 到星期日为 7，不允许重复。",
+      "thinking_budget": 4096
+    },
     "06dd5991ea1e9f486c0d3c3bf5f3f6f298b0c66ea3dad0c967d76fbb0777e3d7": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -360,6 +374,13 @@
       "text": "管理操作。",
       "thinking_budget": 4096
     },
+    "21df3bcd004a1efa74c68f0751880482e98493dfce69eb2140ad04d8f3620ebd": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "HH:mm:ss，可带 1-3 位可选的小数位，例如 09:00:00。",
+      "thinking_budget": 4096
+    },
     "223e987b4a2bd9f4eb03fcd7ade74f575cff0ad5b7d5dcfc35e0d62670d849a8": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -407,6 +428,20 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "pluginId 标识一个可以随时间修改的 Plugin。对于新 Plugin，只提交一个由 3–6 个英文小写字母组成的语义 idPrefix；最终 ID 由 Host 分配。",
+      "thinking_budget": 4096
+    },
+    "25b7c2b3a323be4f7b37525f03728e765570a6cb9173dd735c41dd3d3da3233f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "读取当前工作目录，或使用 cd 进行更改。相对路径使用当前目录。已存在的 shell 和正在运行的进程保留各自的目录。",
+      "thinking_budget": 4096
+    },
+    "25b8e31623967b28bac30e83e176df4ada7407e52498e13e96655aa1ea8f1d0f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当前 DeepSeek Harness Web GUI URL：\"http://127.0.0.1:$PHISTORY_PORT\"。",
       "thinking_budget": 4096
     },
     "26d7bce62beb11c67ed5377e47553403cf7f8d5170e4d11b754e4f6154996439": {
@@ -548,6 +583,13 @@
       "text": "列出当前 profile 中的插件或 bundle，启用或禁用它们，安装 bundle，或移除已安装的 bundle。每个操作都需要 danger-full-access 权限，或需要针对本次调用的批准。批准不会改变会话的权限模式。更改会影响该 profile 中的每个会话。先执行列出操作，以获取准确的标识符。软件包安装可能会执行被允许的构建脚本。live profile 会立即应用更改；startup profile 需要重启。不兼容的 DSH peer 依赖会阻止安装和激活。版本豁免有导致崩溃和数据丢失的风险：授予豁免之前，须警告用户并针对确切的插件和运行时版本获得明确许可。",
       "thinking_budget": 4096
     },
+    "3231ce5d87d71de26a84833de9342d6314a9abc14e7ab228b9d20533c4d743ba": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在准备第 1 轮第 1 步时采样的时间：2026-10-19T11:10:14+00:00[UTC]\n本次请求的浏览器时区：不可用。请用户澄清未加限定的日期和时间。\n距上一条模型可见消息的经过时间：不可用。",
+      "thinking_budget": 4096
+    },
     "32f49aaebb465b6d41d0992572f702c36ab38519970cdbd4c0cac154aca89695": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -583,11 +625,25 @@
       "text": "可选的 JSON 输入，以 `args` 全局变量的形式暴露给脚本（裸列表需包装为一个字段，例如 {\"files\": [...]}）。",
       "thinking_budget": 4096
     },
+    "35ab165f3a5b2ec25f16e2475b05fef69b9f1f953fce00bd5c964bf85900af77": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "你正在通过 DeepSeek Harness Web GUI 与用户交互，其 URL 由运行时上下文给出。当用户提到 \"this page\"、\"this GUI\" 或 \"this app\" 而未指明其他目标时，指的就是这个 GUI。浏览器不提供隐式的 DOM、路由或截图上下文。client-plugin 的 HMR 接收器处于活动状态，但只有当 `pnpm run dev:web` 也从这个同一 checkout 运行来重建它们的 bundle 时，client-plugin 的改动才能在不刷新页面的情况下重新加载；在承诺自动更新之前，先验证该 watcher。其他所有改动——apps/web 外壳和普通 package——都需要重新构建受影响的 Web 产物，并在刷新页面后验证这个现有 URL。另起一个服务器不会更新此 GUI。apps/web 的 Vite 入口构建外壳，但并不是独立应用，因为只有 dsh web 会注入 window.__DSH_BOOT__。除非用户要求，不要启动替代服务器；如果确有必要，请使用受管理的后台任务并验证其确切 URL。",
+      "thinking_budget": 4096
+    },
     "35cbb6074fd8a11283801a927acc12d454f9e43cd29d42e7b413b84f5a727abe": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "用于授予豁免：仅当已就可能出现的崩溃和数据丢失警告用户，并针对这一确切的插件/运行时组合获得明确许可后，才设为 true。一般性的安装许可并不足够。",
+      "thinking_budget": 4096
+    },
+    "36086dd56dbfb802be0653296cd1969d3b957cd1aa6d8a7df8f096974beade94": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "要进入的现有目录。省略时读取当前目录。",
       "thinking_budget": 4096
     },
     "36e321bd1b2cba9b9fb2730547740c9ffcf1850d223390c379c00e778f91009a": {
@@ -657,6 +713,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "对 install_bundle：当用户指定了某个 npm registry URL 时，先查询该 URL；否则查询已配置的 registry，并在某个 registry 无法访问时查询其配置的回退项。",
+      "thinking_budget": 4096
+    },
+    "3d4e15c2148734149a58cbf34b90fbfef287bfd6f9595f98d51f4f1e25704163": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "minute hour day-of-month month day-of-week，例如 \"*/15 9-17 * * 1-5\"。当两个日期字段都受限时，只要其中一个匹配，该日期即匹配。",
       "thinking_budget": 4096
     },
     "3dd3a3efcbb173d4127eb5e9d623ff139a0c3ef58de5feef78f78ce4d4c038f1": {
@@ -736,6 +799,13 @@
       "text": "此文件操作所需的更宽沙箱模式。仅在对沙箱刚刚拒绝的操作进行一次性重试时有效；需要说明理由并获得用户批准。",
       "thinking_budget": 4096
     },
+    "45677c6d51c262d4e91185e7a94aede94619e636ef8875b87e0a234d3d01e42a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "针对可用工具执行一个 TypeScript 程序。接受两个必填参数：`code`，一个异步函数的函数体（仅限可擦除语法；顶层 `await` 和 `return` 可用）；以及 `description`，对程序功能的简短概述。按照系统提示词中的声明，以 `await tools.name(args)` 的形式调用工具。只有你打印或返回的内容才是程序输出——请精心筛选。带图像的子工具结果会在运行结束后附上。程序是一个异步 TypeScript 函数的函数体；仅接受可擦除语法，不允许 enum 或命名空间。类型标注仅供参考。支持顶层 await 和 return。使用 console.log(...) 输出内容，或返回一个无损的 JSON 值。只有打印的值和返回的值会成为程序输出。每次调用都在一个全新的 Node 进程中运行。Node API 可通过 await import(...) 使用。相对路径以所提供的工作目录为准；process.env 初始为空。直接文件系统访问遵循本次执行的沙箱策略。每个程序从会话的当前目录启动。运行中的程序保持其初始目录。沙箱提权仅批准这个完整程序的一次执行。嵌套工具保留各自的政策和批准。只有在出现拒绝的证据后才请求更宽的访问权限。更早的影响可能已经完成：在显式重试之前先检查它们。程序永远不会被自动重放。",
+      "thinking_budget": 4096
+    },
     "45aaa365f68439a78fbb06c5e33c9260260c8a52a2a8363441bde723db5c6297": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -761,6 +831,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "检查每个 bash 结果上的 [exit code: N] 标记；在继续之前先调查失败。",
+      "thinking_budget": 4096
+    },
+    "48ebf0338d181a6dbd85ac24b06f8513928ddfdda02e0f57a59807a1fafb071b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "新任务名称；遵循 schedule_create 的标题规则。",
       "thinking_budget": 4096
     },
     "48ee189469b0cca1a1cbe208f157ec2d0d147f2f06d615413e9bb4c815024335": {
@@ -844,6 +921,13 @@
       "text": "不要在 Tool 内等待审批或浏览器工作，这些只能在当前轮次结束后发生。",
       "thinking_budget": 4096
     },
+    "4dd682ac4dc1a894d5a535e976caea32ddb52376d889597eca7ea4e719bfb49c": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "将任务委托给继承本对话的子智能体：一个以目前所有已完成轮次为种子的子智能体（它看不到当前正在进行的轮次）。当子任务建立在本对话的上下文之上——后续分析、审查、延续——而工作本身又不消耗本对话的上下文时，使用此工具。你收到的是其结果，而非中间步骤。此工具会启动一个独立管理的子智能体，并立即返回其 id。运行时会在其完成时通知你。子智能体使用 `send_message` 报告结果；使用 `send_message` 可在其运行期间进行引导，或在其完成后继续其对话。",
+      "thinking_budget": 4096
+    },
     "4e90b859197d906289ed24a89eb4c523378acca2d9e37c94906cceac19e2f313": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -920,6 +1004,13 @@
       "text": "交给子智能体的完整、自包含的任务。它不共享当前对话的上下文，因此请包含它需要的一切。",
       "thinking_budget": 4096
     },
+    "551c0093927edcb75c84d3ff18cacd47125753d087679a83af4904454d0d28e5": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "目标到期时要呈现的提醒内容。",
+      "thinking_budget": 4096
+    },
     "554433d2df13bad256e6eb07031b6c87868efaacacd55a3650d96910d67421be": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -979,6 +1070,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "绝不为 @pluginId 静默创建另一个 Plugin。如果引用因已被移除、属于其他 Session 或在进程重启时丢失而不可用，请直接告知用户。",
+      "thinking_budget": 4096
+    },
+    "586be5d1827eeac185e0128234906c177f7494a64d88806a6bf4feee6cc95260": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "要编辑的路径，由文件系统后端解析。在参数中，先提供 `file_path`，再提供 `old_string` 和 `new_string`。",
       "thinking_budget": 4096
     },
     "58a97474119e19d3a45f20757ce43134dbf1b3a72e188ad750dd0f256bcef6f4": {
@@ -1149,6 +1247,13 @@
       "text": "你是一个由 deepseek-v4-flash 模型驱动、运行在 DeepSeek Harness 上的编码智能体。你的工作目录是 $PHISTORY_WORKSPACE。",
       "thinking_budget": 4096
     },
+    "68c125f1b70e47d214a210b558ce2580ead6c3756383c21f7f506a47a1d572a8": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当前工作目录：\"$PHISTORY_WORKSPACE\"。",
+      "thinking_budget": 4096
+    },
     "69c6114f57c5ee2ff8495a96b531c67ff6163f11c9a0fbdf4fdb2d7b8afc025e": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1196,6 +1301,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "以逐级递增的详细程度检查当前 Session 拥有的动态 Cordis 对象。不带任何 ID 时，仅列出 Plugin 摘要。仅带 pluginId 时，返回版本指针、最新的 Run 以及每个 Package 的摘要。只有同时带 pluginId 和 packageId 才会返回该不可变 Package 的 Host/Client 源码和运行时诊断。packageId 不能单独提供。在处理 @pluginId、修复异步失败或定义更新版本之前，先查询确切的 Package。此 Tool 是只读的：它既不执行代码，也不更改版本指针。",
+      "thinking_budget": 4096
+    },
+    "6d314f3253fab346e35eb7c659ca7cdc89b700abc3c5cf208068bac6823c9764": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在指定的星期几按本地时间执行。",
       "thinking_budget": 4096
     },
     "6d9bb18f98625ba62e10d39606c82d49c26cbd8c7b1cb6e689d6eba797a931d0": {
@@ -1247,6 +1359,13 @@
       "text": "读取当前同一会话中的目标，包括其确切的 id/revision、目标内容、阶段、已完成的延续轮数、轮数上限、阻塞原因（如有），以及是否已预备另一次延续。更新目标之前先调用此工具。",
       "thinking_budget": 4096
     },
+    "6f3addc07f3db232e36a3c55c498d0538741896ef6dfd284efe98a672396049a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "以整秒计的延迟。",
+      "thinking_budget": 4096
+    },
     "6fce7a4e5c3d0b2e57f06b86cec2431a1ca866f8311c9b70c509b73bcb0a7444": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1254,11 +1373,32 @@
       "text": "约束：并发数与智能体总数上限仍然适用；不提供文件系统、网络、定时器或 Node.js API——工作由智能体完成，脚本只负责协调它们。运行在前台执行：整个脚本结束时，本次调用才返回。",
       "thinking_budget": 4096
     },
+    "70a8a412b8839878dce56300479b49fc6132b0e9bca199567c7c44ab9e52d64b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在准备第 1 轮第 1 步时采样的时间：2026-10-19T11:10:21+00:00[UTC]\n本次请求的浏览器时区：不可用。请用户澄清未加限定的日期和时间。\n距上一条模型可见消息的经过时间：不可用。",
+      "thinking_budget": 4096
+    },
+    "7140c6c2b529fe739fd0214fff3c42f9443131b629a09b478c37249e139045ae": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "要写入的路径，由文件系统后端解析。在参数中先提供 `file_path`，再提供 `content`。",
+      "thinking_budget": 4096
+    },
     "71bc8aed506289099ccf4632b96d6656a031062fd9ac5368963e742ecda3d368": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "仅在 action 为 blocked 时必需：跨多轮持续存在并阻碍进展的具体条件。",
+      "thinking_budget": 4096
+    },
+    "71dd73a810fbe57e09e4ea02f2ae20146a515b0c74372ebda67a09600b5f4477": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "每天在某个本地时间执行。",
       "thinking_budget": 4096
     },
     "722526e85dc3f455f03a3dffb3c9ecc41f4f8a43afb2709dad9f733b7488093a": {
@@ -1439,6 +1579,13 @@
       "text": "与 sandbox_permissions 一起必填：用一句话向用户解释为什么这个确切的文件操作需要更宽的访问权限。使用用户当前请求所用的语言。",
       "thinking_budget": 4096
     },
+    "823b447ce1d6b6b2ac4cf3e32f5c13cc6ec7259798c666b0c240d455d2fe48dc": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "根据 action 而定：插件条目 id、bundle 包名或安装 spec。对于 Official 目录条目，请将 list_bundles 的 installTarget.spec 传给 install_bundle。",
+      "thinking_budget": 4096
+    },
     "83fdfcf5a2070294b8bf696cdc703cbd4967a98ef4f51156914c454f8332ce99": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1529,6 +1676,13 @@
       "text": "当当前来自人类的直接请求是一个应跨自主目标轮次持续推进的长期目标时，创建一个持久化的同会话完成目标。你可以自行推断这一意图，无需用户说出 \"create a goal\"。不要将其用于琐碎的单轮工作。执行时会拒绝非人类和子智能体身份发起的请求。",
       "thinking_budget": 4096
     },
+    "8e6d4e592374d5e8d352521444aa43c76a6d2926631f607241725282827d2068": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "消息 3 · 用户 · 文本",
+      "thinking_budget": 4096
+    },
     "8ecfef753291e9962184b3041c316882afe89d0128bce0db90ff84930bfd5270": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1550,6 +1704,13 @@
       "text": "可选的阶段声明，与 phase() 调用相匹配。",
       "thinking_budget": 4096
     },
+    "90a7965577a6bb4c141348acfd1b776560d0dd551b17022323767ab3b6bae431": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "请求子智能体停止其当前工作。此调用不会等待它停止即返回。之后可以通过 send_message 继续本地直接子智能体的对话。外部执行会永久停止，无法接收后续跟进。它启动的子智能体会继续运行。",
+      "thinking_budget": 4096
+    },
     "90b4c7fd803467c9c125ff623c107e1072dc22f80beb25294fed2d7b1a4a5ab5": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1562,6 +1723,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "要查看文件的特定行范围（例如第 10-25 行），可尝试 'sed -n 10,25p /path/to/the/file'。",
+      "thinking_budget": 4096
+    },
+    "915d175b1e9414f142ae3f970d60b2575814f8e1e4668438101182d820b188f0": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "把用 `subagent` 或 `subagent_fork` 启动的独立委派放在同一条助手消息中一并启动，并在它们运行期间继续做有用的工作。",
       "thinking_budget": 4096
     },
     "91a469a9ba65a32ccb8a560b2d0fd61663a8ed7b646b164ec6a6ad90a469b378": {
@@ -1583,6 +1751,20 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "`str_replace` 命令的必需字符串参数，包含 `path` 中要替换的字符串。对于不使用该参数的命令，null 占位符会被视为已省略。",
+      "thinking_budget": 4096
+    },
+    "92e2f82e272c5db6984f557061e8f1b2de0dee267ec499c5b99086119ad82900": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "准备第 1 轮第 1 步时采样的时间：2026-10-19T11:10:26+00:00[UTC]\n本次请求的浏览器时区：不可用。请用户澄清未另加限定的日期和时间。\n距上一条模型可见消息已过去的时间：不可用。",
+      "thinking_budget": 4096
+    },
+    "92edb258993ecb31722ab7dd98c37c98440a2883f7b387a2a6e135dce99abbb1": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "`run_code` 接受两个必填参数：`code`，一个异步 TypeScript 函数的函数体（仅限可擦除语法——不得使用 `enum` 或命名空间；类型标注仅供参考，代码以剥离类型的方式运行）；以及 `description`，对程序功能的简短概述。下面的声明是本程序的 SDK 绑定。声明并不会使其名称成为可直接调用的工具；只有作为单独工具 schema 提供的名称才能被直接调用。未提供单独的 `bash` schema 时，在 `run_code` 内部调用已声明的 `bash` 绑定：",
       "thinking_budget": 4096
     },
     "9372991d6c4ada0973a5ab85bd8ff9880387a1cf78fa835a568656b51fc54ecf": {
@@ -1624,6 +1806,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "`create` 命令的必需字符串参数，包含要创建的文件的内容。对于不使用该参数的命令，null 占位符会被视为已省略。",
+      "thinking_budget": 4096
+    },
+    "9a6936f4cc88efd34f0e8a1d40485cfa92bd3d047a9add604c1a159567e00d3e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "准备第 1 轮第 1 步时采样的时间：2026-10-19T11:10:34+00:00[UTC]\n本次请求的浏览器时区：不可用。请用户澄清未另加限定的日期和时间。\n距上一条模型可见消息已过去的时间：不可用。",
       "thinking_budget": 4096
     },
     "9a708a46a7e027536a6f2671f031e2c63a12b03193983b7b6ff0761f4e0bc228": {
@@ -1738,6 +1927,13 @@
       "text": "Client 运行在浏览器页面中，适用于主题、布局、当前页面状态、Tool 卡片和 Slot UI。",
       "thinking_budget": 4096
     },
+    "a69fe607e30f8d0f658b5cb6354ea2f0f830d048b38171dbaa35447a05807d96": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "schedule_list 返回的日程 id。",
+      "thinking_budget": 4096
+    },
     "a6a5ecc8acdebdc9b9a15bd4e58f84329b4bf083437d00cced4b58aecca30f09": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1777,6 +1973,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "以 `await tools.name(args)` 的形式调用工具——对特殊名称使用带引号的访问方式：`tools[\"my-tool\"](args)`。每次调用都会解析为该工具的类型化规范 JSON 值。工具参数必须是无损 JSON。",
+      "thinking_budget": 4096
+    },
+    "a89e2cfd628bab2000999934d2b5cb7d6cd916bc3a39c4fa476eac5ac21e9ea3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "列出当前会话中的活动提醒。",
       "thinking_budget": 4096
     },
     "a98c244e6cfa96ec03b762c31aee9fa34971bb361fcb951bfef1ecabecde0b6a": {
@@ -1827,6 +2030,13 @@
       "text": "把一个自包含的任务委托给子智能体（一个在自身上下文中工作的独立智能体），以此转移专注且独立的工作——调研、限定范围的实现、分析——使其不消耗本对话的上下文。子智能体返回的是结果，而不是中间步骤。给它一个完整、独立的提示词：它看不到本对话。该工具默认在后台运行，立即返回一个持久的子智能体 id，并让子对话在后续轮次中保持可用。当该次运行结束时，运行时会向父级发送一条通知，其中包含其结果以及任何最终的助手消息；`send_message` 会在同一子对话中开启后续轮次。仅当你的下一步操作取决于能否收到结果时，才设置 `run_in_background: false`。",
       "thinking_budget": 4096
     },
+    "ace08fafcdeb0855fba9d011273184c896baae3acd54ceb453dee66e212af7e8": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "消息 4 · 用户 · 文本",
+      "thinking_budget": 4096
+    },
     "add4b220e135205f60bd0bd0e2149905538d425cf5d1ec2d5b7b800316535d28": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1867,6 +2077,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "当用户输入 @pluginId 时，系统会注入身份、默认基础 Package、版本指针和运行时状态，但不注入源代码：",
+      "thinking_budget": 4096
+    },
+    "afbfe10024bcf714f70a46a98f1e547accb5b5e6c5231a53c3aa817c087cf0c9": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "列出当前 profile 中的插件或 bundle，启用或禁用它们，安装 bundle，或移除已安装的 bundle。每个操作都需要 danger-full-access 权限，或对此调用的批准。批准不会更改会话的权限模式。更改会影响此 profile 中的每个会话。先执行列出以获取准确的标识符。包安装可能会执行被允许的构建脚本。Live profile 会立即应用更改，包括已安装包的升级；未应用的更改结果会带有 nextStep，其中说明要做什么或要告知用户什么。未满足的 DSH 版本要求（engines.dsh，否则为 DSH 的 peer dependencies）会阻止安装和激活。版本豁免有导致崩溃和数据丢失的风险：在授予豁免之前，先警告用户，并针对确切的插件和运行时版本获得明确许可。",
       "thinking_budget": 4096
     },
     "b0c2726ff97dc6616fc0563dda63a0bb517860149279da51c5524023c8ada818": {
@@ -1937,6 +2154,13 @@
       "text": "优先在最终回复中展示主要结果，并附上简要说明。当图片有助于解释或对比时，使用 ![Description](<path/to/image.png>)。在引用图片或列出文件时，使用 [Description](<path/to/image.png>)。将 Markdown 文件目标用尖括号括起来，尤其是包含空格的路径。不要仅为列出已编辑的源文件而调用 present，也不要运行命令来检查是否会出现 diff 视图。当单独的文件卡片有助于用户打开完整的交付物时使用 present，包括图片、Office 文档、电子表格和演示文稿。每个展示的文件都会在回复下方添加一张卡片，带有预览和原生打开操作。避免重复已在内联展示的结果，除非单独的卡片能提供有用的访问方式。在命令、配置表达式和代码块之外，将每一次对现有文件的提及（包括重复提及和表格中的提及）链接到其相对于工作目录的完整路径或绝对路径；对已知行号，在目标后追加 #L24 或 #L24-L30。使用文件名或清晰的别名作为标签，只添加足以区分文件的父目录；标签中不要包含完整路径。默认只用名称；当精确位置重要时，追加 :24 或 :24–30，行号后缀中不带 # 或 L。",
       "thinking_budget": 4096
     },
+    "b67178efc9a9ae433911539ccfb194bbd2da48b14397ac4ae4ebe33812593e9f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "执行 bash 命令（`bash -c`）并返回其 stdout/stderr。每次调用都在新的 shell 中运行；请传入 `workdir`，而不是使用 `cd`。受管理的 `$DSH_*` 变量公开当前 Harness 环境的事实信息。长输出会被截断为末尾部分；完整输出会保存到一个文件，并在可用时报告该文件的路径。在参数中，先提供 `description`，再提供 `command`。在执行任何删除或移动之前，先验证解析出的绝对目标路径就是预期的路径；绝不要对未经检查的计算路径执行该操作。未设置的变量会展开为空字符串，因此请用 `${VAR:?}` 保护此类路径中的变量。命令可能在文件沙箱下运行；被阻止的文件操作会报告为 `[sandbox: file access denied under <mode> mode]`，即策略拒绝：不要换其他方式重试。",
+      "thinking_budget": 4096
+    },
     "b6bd7ec2578c5e5ed6e5770d33386ef13d9cc18ebab32b7ebb80e42f14479899": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1949,6 +2173,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "运行一个面向单一不可变目标的前台新智能体 Ralph 循环。仅当直接人类明确要求 Ralph 或新智能体迭代时才使用。每一轮都会开启一个新子级，没有父对话，也没有先前的子会话；共享工作区是长期记忆，只有一份有界的结构化报告跨轮传递。当某个 worker 报告完成或具体阻碍，或达到轮次上限时，调用即返回。普通的长时间运行的同会话工作属于 goal 工具。",
+      "thinking_budget": 4096
+    },
+    "b7c4027d86b41c01a9ec24d2a1c02c2b66c87e96f665868f1a80549329e7b912": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "将自包含的任务委托给子智能体（一个在自身上下文中工作的独立智能体），以分担专注、独立的工作——研究、限定范围的实现、分析——从而不消耗本对话的上下文。子智能体返回其结果，而非中间步骤。此工具会启动一个独立管理的子智能体，并立即返回其 id。运行时会在其完成时通知你。子智能体使用 `send_message` 报告结果；使用 `send_message` 可在其运行期间进行引导，或在其完成后继续其对话。",
       "thinking_budget": 4096
     },
     "b91ec943448183552a1dc3e6120d24804a2ecacbe7afbf22e1889ada28cb9524": {
@@ -2007,6 +2238,13 @@
       "text": "cordis_run：激活一个确切的 Package。首次激活、重启当前版本或回滚时使用 run；切换版本时使用 update。",
       "thinking_budget": 4096
     },
+    "bfb16fff719a107a410b42086a044d01719f5d40184a9af23c64567a000e1164": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "HH:mm:ss，可带 1–3 位小数，例如 23:00:00。",
+      "thinking_budget": 4096
+    },
     "bffead4bba9384757926097901c2798213b1e536527935cf5dfddabca0223c51": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -2019,6 +2257,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "通过 agent id 请求取消后台智能体的当前回合。目标可以是你的直接子智能体，也可以是在你之下创建的更深层级的智能体。只有当前回合会停止：已排队发给该智能体的消息会保持挂起，直到后续的 send_message；它启动的智能体继续运行；该智能体本身仍可用于后续跟进。此调用在停止请求被接受后立即返回，因此目标可能会短暂地继续运行；中断一个已经完成的智能体是可接受的空操作。",
+      "thinking_budget": 4096
+    },
+    "c199412dbcfaf76940972740b7a823bbe4c0ecfae81eec739a64291e5ffd6842": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当前 DeepSeek Harness 实现 checkout：\"$PHISTORY_INSTALL/\"。",
       "thinking_budget": 4096
     },
     "c1dd1378a59fccd7abb5c1a57cb0774810ad14d45a9599455188e9a8987442d8": {
@@ -2040,6 +2285,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "使用 web_search 工具查找网络上的最新信息。它会返回一个可选的回答以及来源 URL 列表。在返回内容包含来源摘要时使用它们，并将相关 URL 以 Markdown 链接的形式引用。",
+      "thinking_budget": 4096
+    },
+    "c2ea7442436ffbaf856a39dcb86b622ff097c5d3bd6d0bd775aa0d0caede910a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "子智能体的初始工作目录。相对路径使用你当前的目录；省略时继承该目录。之后任一智能体的目录变更都相互独立。",
       "thinking_budget": 4096
     },
     "c4c2202a432bda7929b245e6609fd519f1a2fe2333292b0b7c97f68a807aa77f": {
@@ -2074,6 +2326,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "在程序内部：",
+      "thinking_budget": 4096
+    },
+    "c98ec5211f880e673f6ff8a16d9ecd175cabe4d535191d18bd4964602f08fd5e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "用用户语言写成的简洁任务名称，最多 120 个字符。只命名核心动作和对象；保留必要的目标标识符，如 PR 号和分支名。不要包含执行频率（如每天、每小时）、计划的日期/时间、时区、任务状态或配置与执行细节（如只读模式、profile 标签过滤器），即使它们嵌在所请求的或现有的标题中也不要写入。不要附加括号备注。把调度信息放在时间参数中，把执行指令放在 prompt 中。",
       "thinking_budget": 4096
     },
     "ca409d5fca1195aeec029e3bd6c8792f201849609a89efacb6199a2daf8ec466": {
@@ -2173,6 +2432,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "要替换的字面文本。",
+      "thinking_budget": 4096
+    },
+    "cf98ce71fafb5719f95374615770b7ef806d9e65865155d497f40030d41dd0ca": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "UTC 或 IANA 区域/位置，例如 Asia/Shanghai。",
       "thinking_budget": 4096
     },
     "d020ff8fa9cf9d3a950048c24c2073ed5587b74b11f4bb0ddace44783e4cf0bd": {
@@ -2342,6 +2608,27 @@
       "text": "查找路径与 glob 模式匹配的文件而非目录，包括隐藏文件和被忽略的文件。按修改时间顺序返回最多 100 个路径；更大的结果会保留靠前的路径，并报告完整列表的保存位置。",
       "thinking_budget": 4096
     },
+    "deda517e6b8c2161fdd6864895235fd85b7359c9ad194a7c8b018f19a6781769": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "精确的日程 id。",
+      "thinking_budget": 4096
+    },
+    "e043e3a097c97361a85f594a7bd48f77ac62991216394f20710abbe8337fe9c9": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "就地修改提醒并保留其 id。提供新的标题、提示词或最多一个定时参数；省略的字段保留其已存储的值。要更改相对延迟，请创建新的提醒。",
+      "thinking_budget": 4096
+    },
+    "e2ad8d16b112284871b04c27bca73caee1fb32a523d9ba45f22f05d4faf85d9a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "新的提醒内容。",
+      "thinking_budget": 4096
+    },
     "e2e912187adf21c16b663545bda702d352178a10962072077afad55d9696932a": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -2398,6 +2685,13 @@
       "text": "通过替换字面文本来编辑现有的 UTF-8 文本文件。",
       "thinking_budget": 4096
     },
+    "e3df081735ad97a79f59a776bf6a60cfa494de29bef5fd64adb2ebfc28184d4e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "带时区的五字段 Vixie cron 表达式。",
+      "thinking_budget": 4096
+    },
     "e403347382ebf3f7f303f7f0c1d443b08283d014197cc7665ec0111dc3ab0a8b": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -2438,6 +2732,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "cordis_run 可能需要用户批准。当它返回 awaiting-approval 时，说明用户必须在 UI 中允许或拒绝该请求。不要等待、不要重试，也不要声称它正在运行。",
+      "thinking_budget": 4096
+    },
+    "e87b64855877a36e2619f8d13172c6c4bc2df86e7ced9b9cbe3b6f323453beae": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在当前会话中创建一个提醒，在到期时交付 prompt。请恰好提供一个时间参数：after_seconds、at、every_seconds、daily、weekly 或 cron。时区中不存在的本地时间会被跳过；重复出现的本地时间只触发一次，取较早的时刻。停机之后，循环提醒只交付其最近一次错过的发生。崩溃后交付可能会重复。",
       "thinking_budget": 4096
     },
     "e9edf0b05824ddb3a565b9b9e0f24d830f8b30157cbb43f7769b38a3ddaaf7a1": {
@@ -2551,6 +2852,13 @@
       "text": "对沙箱刚刚拒绝的确切命令进行一次性重试时所用的最窄的更宽沙箱模式；该重试会请求用户批准。",
       "thinking_budget": 4096
     },
+    "f2d18eb1f86e2a5ea00a05a1b161ae1756f66e8e893e929e62a83d13086cce47": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "运行时上下文给出了 DeepSeek Harness 实现的 checkout。checkout 位置与当前工作目录是两个独立的值，可能不同；绝不要从 checkout 路径推断工作目录。使用 pwd 确定当前工作目录。此 checkout 仅用于查看或扩展 DSH 本身。",
+      "thinking_budget": 4096
+    },
     "f43166055de2a298c5c6224b28766a1655f28caa186f25a0d630bb74487bc538": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -2640,6 +2948,13 @@
       "text": "edit、pause 和 resume 需要来自顶层人类用户的直接请求。complete 和 blocked 在该目标的自动延续期间同样被允许；在达到配置的最小轮数之前，blocked 会被拒绝。",
       "thinking_budget": 4096
     },
+    "fd5cdfed014291922a9b0ed4fc581ad88f04a973b9d2c065863da3f5bc35fbdf": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "删除当前会话中的提醒，无论其处于活动还是非活动状态。删除不会撤回已排入队列的提醒消息。",
+      "thinking_budget": 4096
+    },
     "fe520c029e535f26ea69ab5930c4226de9b0db062148ff5403d9d8ea00be197f": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -2660,6 +2975,13 @@
       "review": "model-revised-against-source",
       "status": "translated",
       "text": "返回 Host-half Cordis Plugin 的普通 JavaScript 函数体。",
+      "thinking_budget": 4096
+    },
+    "ffb8b82e51258a988e32c4b8ad1bb3588961156f5be7d2ed72779d3e934026fb": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "绝对目标：带偏移量的 RFC 3339 日期时间，或本地日期、时间和 IANA time_zone。",
       "thinking_budget": 4096
     }
   },
