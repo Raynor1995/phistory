@@ -5465,6 +5465,13 @@
       "text": "xd://ast_edit — 执行 AST 感知的代码编辑（结构性重构）",
       "thinking_budget": 4096
     },
+    "7344e1b8ea352ea505211b6e3a9d36c8f3af43a3e12a1c03068dcb3009967639": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "`proc://`：作业/服务；`proc://<id>` 状态/输出；write 发送 stdin（空 = Enter）；`proc://<id>/kill` 取消/停止，省略 `content`；`proc://<id>/mode`：`persist`|`session`|`detached`；`proc://<id>/streams` 列出 bash 作业的管道，`proc://<id>/streams/<n>` 读取到目前为止经过管道 `n` 的内容（在 `| tail`/`| grep` 下实时更新；切勿为了查看而重新运行）。",
+      "thinking_budget": 4096
+    },
     "734af34ac0c96b47c040479efbb9b1551331a3ef180913efc223f523f684164a": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5743,6 +5750,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "`ssh://host/<path>`：远程 UTF-8 文件/目录（最大 1 MiB），用于读/写/grep；裸形式列出主机。将 `:` `?` `#` 编码为 %3A %3F %23。需要已验证的 POSIX shell；否则使用 bash 远程 SSH 或 sshfs。",
+      "thinking_budget": 4096
+    },
+    "7a34a943c30d243bb7c3caf2bed75bc16b335fcbb60bc77d81faf45e6c163b64": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天是 2026-10-19；当前工作目录：'$PHISTORY_WORKSPACE'。不要在回复中重复此信息。",
       "thinking_budget": 4096
     },
     "7a3fe33502a8247287b8ee9ae74e23c3e069abb3236483a21960892e184e6c00": {

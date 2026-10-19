@@ -471,6 +471,13 @@
       "text": "询问具体的实现选择（例如架构模式、使用哪个库）",
       "thinking_budget": 4096
     },
+    "07923e41b2554f66e33ed210ca7546ef2f970376aeb75520114692b749232706": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "结果格式：每个匹配的工具在 <functions> 块内显示为一行 <function>{\"description\": \"...\", \"name\": \"...\", \"parameters\": {...}}</function>——与本提示词顶部的工具列表采用相同的编码。",
+      "thinking_budget": 4096
+    },
     "07aaf37acd785be874991cef8d424cdd3735ebe69d41131b34cee2de33c494fe": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -1667,6 +1674,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "Artifact 工具将 HTML 文件渲染为一个 Artifact：一个托管在 claude.ai 上的网页，默认为私密。当页面会比终端文本更清晰，或此人及其团队会使用该页面而不仅仅是阅读它时（例如收集输入、跟踪人们的修改，或展示实时数据），Claude 会使用它。Claude 可以不经要求就发布自己的作品，因为 artifact 初始即为私密。例外是进一步分享后可能误导或造成伤害的内容：任何模仿真实组织、人物或记录的东西，以及此人表明为敏感的任何内容。Claude 将这些构建为文件，让此人决定它们是否获得 URL。",
+      "thinking_budget": 4096
+    },
+    "1905d8e5998cf39a5c7dc5f80e532ef7ab3bf2c498c177719ddaeaf8df65c840": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "\"notebook jupyter\" —— 关键词搜索，最多返回 max_results 个最佳匹配",
       "thinking_budget": 4096
     },
     "191979bfda9f957e093af56a9d1edcf30a6696b35ada2413dedac623f709538e": {
@@ -2877,6 +2891,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "为生成的队友指定的权限模式（例如，\"plan\" 表示需要计划批准）。",
+      "thinking_budget": 4096
+    },
+    "2bb33ca675e1bbf2e6f3151ad316fdbd810262e3964ff2655b96dbdadab3b61c": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "EndConversation（延迟加载工具）：仅用于用户持续辱骂助手的情况，或用户明确要求演示该工具时使用。使用前请通过 ToolSearch(\"select:EndConversation\") 加载完整指引。",
       "thinking_budget": 4096
     },
     "2bba3281b7821a7c4b1180a7157a808734060ceac3a993916595fedb5998baba": {
@@ -6287,6 +6308,13 @@
       "text": "statusline-setup：使用此智能体配置用户的 Claude Code 状态栏设置。（工具：Read, Edit）",
       "thinking_budget": 4096
     },
+    "6320688703de0f048e7ce881a424beedcf104deb48aa20f219467df9c4e1007e": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "以下延迟加载工具现可通过 ToolSearch 使用。它们的 schema 并未加载——直接调用会因 InputValidationError 而失败。调用前请使用 ToolSearch 并以查询 \"select:<name>[,<name>...]\" 加载工具 schema：\nCronCreate\nCronDelete\nCronList\nDesignSync\nEnterWorktree\nExitWorktree\nMonitor\nNotebookEdit\nPushNotification\nSendMessage\nTaskStop\nWebFetch\nWebSearch",
+      "thinking_budget": 4096
+    },
     "637471ae271601817d07dff659cb2373fe66dd4151ebb6b9c6463ebb7d6cc2ac": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -7598,6 +7626,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "最后手段的覆盖操作，会丢弃另一个会话已发布的版本。发生 409 冲突时，正常的解决办法是重新读取 artifact，将你的编辑合并到较新的内容之上，然后再次发布 — 而不是使用 force。仅当用户明确想要替换另一个会话的版本时才传入 force:true。被跟踪的 baseVersion 仍会发送；使用 force:true 时，服务器将其视为参考信息并执行覆盖。请省略（或设为 false），使并发写入得到 409 报错，而不是被静默覆盖。",
+      "thinking_budget": 4096
+    },
+    "7abf7d38fa64a46fd70b5d9b229b224b9ff178c94aa5459632330139f8f8e702": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "获取延迟工具的完整 schema 定义，以便能够调用它们。",
       "thinking_budget": 4096
     },
     "7b57616961f4a391eb99f387c8b278df1ccd8710d63b726040493859a8ca2cc5": {
@@ -9100,6 +9135,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "你由名为 Opus 4.8（1M 上下文）的模型驱动。确切的模型 ID 是 claude-opus-4-8[1m]。",
+      "thinking_budget": 4096
+    },
+    "96a98e8ec486cf4c9678dafce78662490bdc75288eebe06f637430e0be1ac465": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "\"+slack send\" —— 要求名称中包含 \"slack\"，按其余词条排序",
       "thinking_budget": 4096
     },
     "96b95bb32d90aa3fceffa7a0f454bec7083e6f0bd5db587c959aa537a5dc8e19": {
@@ -11131,6 +11173,13 @@
       "text": "除 list_projects 和 create_project 外，所有方法均需要此参数",
       "thinking_budget": 4096
     },
+    "b6c7a346bed2e421a696a2e73f7f3478d9108e4ce808c2ef2ed525dbb141afba": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "延迟工具仅以名称形式出现在 <system-reminder> 消息中。在获取之前，只有名称是已知的——没有参数 schema，因此无法调用该工具。此工具接受一个查询，将其与延迟工具列表进行匹配，并在 <functions> 块中返回所匹配工具的完整 JSONSchema 定义。一旦某个工具的 schema 出现在该结果中，它就可以像本提示词顶部定义的任何工具一样被调用。",
+      "thinking_budget": 4096
+    },
     "b6d4c209e317f693cbda8628fb5452fefa05f902824291588cab02c790429d86": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -11182,6 +11231,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "仅 action 为 'batch' 时：要一起应用的写入，为 1-50 个条目，形如 {op: 'set'|'update'|'delete', collection, doc_id，且对 set/update 为 data（内联对象）或 file_path（一个本地 JSON 文件）二者恰好其一，外加 if_version——即该文档最后一次读取时的 `version`，已存在文档的每个条目都必须携带（仅在创建时才可省略）；如果任何被固定的文档此后已更改，或某个已存在文档的条目没有携带固定版本，整个 batch 不会写入任何内容，且结果会指出第一个这样的条目}。每个文档最多被寻址一次，整个 batch 主体最多 1 MiB；batch 在服务器支持的地方全部提交或全部不提交，否则（即没有携带固定版本的 batch）按顺序一次执行一个（结果会说明是哪种情况）。每当写入的文档超过两三个时，都应优先使用它而不是分开调用。",
+      "thinking_budget": 4096
+    },
+    "b73394a26997f14b41a957a15c3a07896af04ab05d1f8bc9bc34e67c672abc03": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "查询形式：",
       "thinking_budget": 4096
     },
     "b7386d91ff350a3de2470994f053c1705712bf114cb71a64c2d013365fd80455": {
@@ -11482,6 +11538,13 @@
       "text": "使用 EndConversation 工具",
       "thinking_budget": 4096
     },
+    "bbd3a8f920fc29a0d86a419cff3daa41537f5734646a77452eff983e13840b26": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "\"select:Read,Edit,Grep\" —— 按名称精确获取这些工具",
+      "thinking_budget": 4096
+    },
     "bc316a1330e21b80a72746f35e0a851e9b565e927e9828fd914edd9eb304dfef": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -11656,6 +11719,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "你已在以下环境中被调用：",
+      "thinking_budget": 4096
+    },
+    "befab238b81ea3d8350d3f8b3ce7b1a1661c90621c4da16b1892663ff06ca9be": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "保留的占位符，用于保持延迟工具加载机制处于启用状态；切勿调用此工具。",
       "thinking_budget": 4096
     },
     "bf03423fb0029df7a4dd4dbbe44c1d697bd9802b40be0e2be26cc5d421c15490": {
@@ -13255,6 +13325,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "更新后的待办事项列表",
+      "thinking_budget": 4096
+    },
+    "d959dc749d9ce5c821cb5ada9fa49920937c9480f1225604010732e71c29d43a": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "以下延迟加载工具现可通过 ToolSearch 使用。它们的 schema 并未加载——直接调用会因 InputValidationError 而失败。调用前请使用 ToolSearch 并以查询 \"select:<name>[,<name>...]\" 加载工具 schema：\nArtifactComments\nArtifactData\nCronCreate\nCronDelete\nCronList\nDesignSync\nEndConversation\nEnterPlanMode\nEnterWorktree\nExitPlanMode\nExitWorktree\nMonitor\nNotebookEdit\nPushNotification\nSendMessage\nTaskStop\nWebFetch\nWebSearch",
       "thinking_budget": 4096
     },
     "d9608904385e488c2325eeb3fecd2f32460789612b580470b5d61155f6a52f4a": {
@@ -14948,6 +15025,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "子智能体默认在后台运行；其中一个完成时你会收到通知。仅当你的下一个动作就依赖该结果、且在它运行期间没有其他有用的事可做时才传入 `run_in_background: false`——否则让它在后台运行，以便用户能够插话。绝不编造或预测尚未完成的智能体的结果——通知绝不是由你自己写出的；如果用户在通知到来之前询问，就说它仍在运行。",
+      "thinking_budget": 4096
+    },
+    "f413a6db4567699931e9ec980995ac07f55e605212c549c28a496e38acfb13fc": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "plugin-authoring：制作 mod：即对 Claude 自身界面或行为的更改，例如常驻聊天旁边并会持续更新的面板或窗格、band、状态栏、toast、斜杠命令，或工具调用上的 hook。用于制作、更改或调试 mod 及其 hooks 模块。",
       "thinking_budget": 4096
     },
     "f45edae4d0684f80ca542d3be31a20bb963c265fab0e7975ff842f5c8c5f44e2": {
