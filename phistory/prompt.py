@@ -64,7 +64,13 @@ class PromptSnapshot:
 def render_archive_markdown(trace_path: Path) -> str:
     """The archived Markdown for one capture: snapshot plus run-noise normalization."""
     records = read_records(trace_path)
-    return sanitize(render_markdown(_snapshot(records, trace_path)), ports=capture_ports(records))
+    markdown = sanitize(render_markdown(_snapshot(records, trace_path)), ports=capture_ports(records))
+    if any(record.get("provenance", {}).get("kind") == "model-self-report" for record in records):
+        markdown = (
+            "> Model self-report, redacted before publication. Not a captured network request; "
+            "completeness and accuracy are unverified.\n\n" + markdown
+        )
+    return markdown
 
 
 def snapshot_from_trace(path: Path) -> PromptSnapshot:

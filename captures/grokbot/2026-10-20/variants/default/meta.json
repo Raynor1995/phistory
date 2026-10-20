@@ -1,0 +1,37 @@
+{
+  "agent_id": "grokbot",
+  "agent": "Grokbot",
+  "version": "2026-10-20",
+  "variant": {
+    "id": "default",
+    "label": "Default",
+    "dimensions": {
+      "surface": "model-self-report"
+    }
+  },
+  "requested": {
+    "surface": "model-self-report"
+  },
+  "observed": {
+    "provider": "anthropic",
+    "model": "Grok Bot",
+    "tool_count": 12
+  },
+  "published_at": "2026-10-20T18:10:56Z",
+  "captured_at": "2026-10-20T18:10:56Z",
+  "target": "model self-report",
+  "trace_redacted": true,
+  "redactions": [
+    "authorization and transport identifiers",
+    "organization, workspace, Slack, and user metadata",
+    "private memory content, session links, and email addresses",
+    "local home, memory, and scratchpad paths",
+    "captured user, assistant, tool-result, and response content",
+    "private agent profiles, teammate rosters, runtime context, and UUIDs"
+  ],
+  "redacted_history_message_count": 0,
+  "source": {
+    "kind": "model-self-report",
+    "sha256": "d78e4b06782ad3880faf2bd2ebd918ea1171ff55482d7000548a392d72b4571b"
+  }
+}

@@ -2,6 +2,9 @@ import copy
 import hashlib
 import json
 
+from phistory.prompt import render_archive_markdown
+from phistory.registry import agent_sort_key
+from phistory.site import _build_manifest
 from scripts.import_manual_trace import import_trace
 
 
@@ -103,3 +106,54 @@ def test_manual_import_normalizes_private_values_without_hiding_prompt_changes(t
     assert third_prompt.count("[PRIOR CONVERSATION REDACTED BEFORE PUBLICATION]") == 1
     assert "private answer" not in third_prompt
     assert third_meta["redacted_history_message_count"] == 2
+
+
+def test_self_report_redacts_private_context_and_preserves_instructions(tmp_path):
+    record = trace_record(suffix="sample")
+    record["request"]["body"]["system"][0]["text"] = (
+        "Read <user_info> for context; keep this instruction.\n"
+        'Your agent name is "Private Bot".\n'
+        "Your user is Private Owner; act on their behalf.\n"
+        "<user_info>\nstore-12345678-1234-1234-1234-123456789abc\n</user_info>\n"
+        "<memory_context>\nPrivate memory payload\n</memory_context>\n"
+        "<teammates>\nOffer to contact teammates when useful.\n"
+        "Teammates you can message right now:\n- Secret Teammate\n</teammates>\n"
+        "<agent_profile_update>\nPrivate custom instructions\n</agent_profile_update>\n"
+        "Read /home/box/agents/12345678-1234-1234-1234-123456789abc/profile.json.\n"
+        "Keep tool selection rules."
+    )
+    source = tmp_path / "source.json"
+    source.write_text(json.dumps(record, indent=2))
+    root = tmp_path / "captures"
+    target = root / "grokbot/2026-10-20/variants/default"
+    meta = import_trace(
+        source,
+        target,
+        agent_id="grokbot",
+        agent_name="Grokbot",
+        version="2026-10-20",
+        surface="model-self-report",
+        self_report=True,
+    )
+    text = (target / "trace.jsonl").read_text()
+    for private in (
+        "Private Bot",
+        "Private Owner",
+        "Private memory",
+        "Secret Teammate",
+        "Private custom",
+        "12345678-1234",
+        "/home/box",
+    ):
+        assert private not in text
+    assert "Offer to contact teammates when useful." in text
+    assert "Read <user_info> for context; keep this instruction." in text
+    assert "Keep tool selection rules." in text
+    assert meta["source"]["kind"] == "model-self-report"
+    assert meta["source"]["sha256"] == hashlib.sha256(source.read_bytes()).hexdigest()
+    assert "response" not in json.loads(text)
+    prompt = (target / "prompt.md").read_text()
+    assert "Not a captured network request" in prompt
+    assert prompt == render_archive_markdown(target / "trace.jsonl")
+    assert _build_manifest(root)["agents"][0]["latest"]["self_report"]
+    assert agent_sort_key("claude-tag") < agent_sort_key("grokbot") < agent_sort_key("grok")

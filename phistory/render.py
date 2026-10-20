@@ -57,6 +57,7 @@ def read_capture_rows(root: Path) -> list[dict[str, Any]]:
                 "variant_dimensions": variant_meta.get("dimensions") or {},
                 "observed": meta.get("observed") or {},
                 "trace_redacted": meta.get("trace_redacted") is True,
+                "self_report": meta.get("source", {}).get("kind") == "model-self-report",
                 "published_at": meta.get("published_at") or "",
                 "captured_at": meta.get("captured_at") or "",
                 "prompt": prompt,
@@ -471,6 +472,8 @@ def _capture_json_row(row: dict[str, Any], base: Path) -> dict[str, Any]:
     }
     if row["trace_redacted"]:
         payload["trace_redacted"] = True
+    if row.get("self_report"):
+        payload["self_report"] = True
     return payload
 
 

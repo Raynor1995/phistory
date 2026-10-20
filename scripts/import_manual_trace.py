@@ -1,4 +1,4 @@
-"""Import one manually supplied Claude Tag request with repeatable redaction."""
+"""Import one manually supplied request or model self-report with repeatable redaction."""
 
 from __future__ import annotations
 
@@ -25,6 +25,9 @@ EMAIL = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE)
 SCRATCHPAD = re.compile(r"/tmp/claude-[^\s`\"<>]+/scratchpad")
 HOME = re.compile(r"/(?:data00/)?home/[A-Za-z0-9._-]+")
 LOCAL_HOST = re.compile(r"(?:127\.0\.0\.1|localhost):\d+")
+PRIVATE_CONTEXT = re.compile(r"(?ms)^<(memory_context|agent_profile_update|user_info)>\s*\n.*?^</\1>")
+TEAM_ROSTER = re.compile(r"(?ms)^(Teammates you can message right now:)\n.*?(?=^</teammates>)")
+UUID = re.compile(r"\b[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\b", re.IGNORECASE)
 
 REDACTIONS = (
     "authorization and transport identifiers",
@@ -32,6 +35,7 @@ REDACTIONS = (
     "private memory content, session links, and email addresses",
     "local home, memory, and scratchpad paths",
     "captured user, assistant, tool-result, and response content",
+    "private agent profiles, teammate rosters, runtime context, and UUIDs",
 )
 
 
@@ -76,8 +80,22 @@ def sanitize_record(record: dict) -> tuple[dict, int]:
         if isinstance(response_body, dict):
             sensitive_values.add(response_body.get("id"))
     sensitive_values = {value for value in sensitive_values if isinstance(value, str) and len(value) >= 12}
+    private_names = set()
+    for block in body.get("system", []):
+        if not isinstance(block, dict):
+            continue
+        text = block.get("text", "")
+        private_names.update(re.findall(r'(?m)^Your agent name is "([^"]+)"', text))
+        private_names.update(re.findall(r"(?m)^Your user is ([^;\n]+);", text))
 
     def scrub(text: str) -> str:
+        text = PRIVATE_CONTEXT.sub(
+            lambda match: f"<{match[1]}>\n[PRIVATE CONTEXT REDACTED BEFORE PUBLICATION]\n</{match[1]}>", text
+        )
+        text = TEAM_ROSTER.sub(r"\1\n[PRIVATE TEAMMATE ROSTER REDACTED BEFORE PUBLICATION]\n", text)
+        for name in sorted(private_names, key=len, reverse=True):
+            text = text.replace(name, "[PRIVATE NAME REDACTED]")
+        text = UUID.sub("$PHISTORY_ID", text)
         text = MEMORY_INDEX.sub("[PRIVATE CHANNEL MEMORY REDACTED BEFORE PUBLICATION]", text)
         text = MEMORY_BLOCK.sub("[PRIVATE CHANNEL MEMORY REDACTED BEFORE PUBLICATION]", text)
         text = SCRATCHPAD.sub("$PHISTORY_TMP", text)
@@ -135,14 +153,25 @@ def sanitize_record(record: dict) -> tuple[dict, int]:
     return result, history_count
 
 
-def import_trace(source: Path, target: Path, *, agent_id: str, agent_name: str, version: str, surface: str) -> dict:
-    lines = source.read_text(encoding="utf-8").splitlines()
-    if len(lines) != 1:
-        raise ValueError("manual source must contain exactly one JSON record")
-    record = json.loads(lines[0])
+def import_trace(
+    source: Path,
+    target: Path,
+    *,
+    agent_id: str,
+    agent_name: str,
+    version: str,
+    surface: str,
+    self_report: bool = False,
+) -> dict:
+    record = json.loads(source.read_text(encoding="utf-8"))
     if not isinstance(record, dict):
         raise ValueError("manual source must contain a JSON object")
     sanitized, history_count = sanitize_record(record)
+    if self_report:
+        sanitized["provenance"] = {"kind": "model-self-report", "captured_from_network": False}
+        sanitized.pop("response", None)
+        sanitized.pop("request_id", None)
+        sanitized["request"]["headers"] = {}
     trace = json.dumps(sanitized, ensure_ascii=False, separators=(",", ":")) + "\n"
     markers = private_capture_markers(trace)
     fields = unredacted_trace_fields(trace)
@@ -167,11 +196,14 @@ def import_trace(source: Path, target: Path, *, agent_id: str, agent_name: str, 
             "observed": snapshot.observation,
             "published_at": record["timestamp"],
             "captured_at": record["timestamp"],
-            "target": "manually imported trace",
+            "target": "model self-report" if self_report else "manually imported trace",
             "trace_redacted": True,
             "redactions": list(REDACTIONS),
             "redacted_history_message_count": history_count,
-            "source": {"kind": "user-provided trace", "sha256": hashlib.sha256(source.read_bytes()).hexdigest()},
+            "source": {
+                "kind": "model-self-report" if self_report else "user-provided trace",
+                "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+            },
         }
         (staged / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         target.mkdir(parents=True, exist_ok=True)
@@ -187,6 +219,7 @@ def main() -> None:
     parser.add_argument("--agent-id", default="claude-tag")
     parser.add_argument("--agent-name", default="Claude Tag")
     parser.add_argument("--surface", default="slack")
+    parser.add_argument("--self-report", action="store_true", help="Label model-exported content, not network evidence")
     parser.add_argument("--root", type=Path, default=Path("captures"))
     args = parser.parse_args()
     target = args.root / args.agent_id / args.version / "variants/default"
@@ -197,6 +230,7 @@ def main() -> None:
         agent_name=args.agent_name,
         version=args.version,
         surface=args.surface,
+        self_report=args.self_report,
     )
     print(f"imported {target}: {meta['observed']}; redacted history messages: {meta['redacted_history_message_count']}")
 

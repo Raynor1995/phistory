@@ -1,5 +1,16 @@
 # Manually supplied traces
 
+Model-exported JSON objects can use the same request-body structure. The importer accepts
+one JSON object, either pretty-printed JSON or a single JSONL record. For model self-reports,
+pass `--self-report --surface model-self-report --agent-id <id> --agent-name <name>`.
+This records the source kind and labels both the rendered prompt and web detail as
+model-reported content, not network evidence. The supplied timestamp determines the
+archive time; the positional version remains the chosen version label.
+
+Private runtime context blocks, agent names, teammate rosters and UUIDs are normalized
+by shared rules. Review every new source before importing; the rules are not a guarantee
+that arbitrary JSON contains no private data.
+
 Keep the original JSONL outside this repository. Import a selected, single-request Claude Tag trace with:
 
 ```bash

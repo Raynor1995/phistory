@@ -536,7 +536,7 @@ AGENTS: dict[str, AgentSpec] = {
     )
 }
 AGENT_ORDER = tuple(AGENTS)
-CATALOG_AGENT_ORDER = (*AGENT_ORDER[:4], "claude-tag", *AGENT_ORDER[4:])
+CATALOG_AGENT_ORDER = (*AGENT_ORDER[:4], "claude-tag", "grokbot", *AGENT_ORDER[4:])
 
 
 def agent_sort_key(agent_id: str) -> tuple[int, str]:
