@@ -4268,6 +4268,13 @@
       "text": "Section: `[PATH#TAG]`；`TAG`：取自最新 `read`/`search` 的 4 位十六进制快照，每个 section 必填。新文件：`write`；hashline 只编辑已有文件。",
       "thinking_budget": 4096
     },
+    "5a00132acb7f9adc3092f1d1224198640e40a44babb04c6acf5bfc03c84e2a05": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "仅在受阻且没有其他事可做时才等待。\n阻塞等待你启动的后台作业/服务，或等待本轮中你所发消息的回复；在首个结果、发送给你的消息或转向中断出现时返回；安全上限会返回仍在运行的快照。\n没有你启动且在运行的任务，也没有待收的回复？立即返回。\n结果和消息会自动送达。还有工作未完成时绝不轮询。",
+      "thinking_budget": 4096
+    },
     "5a735cde47f9dad9da6181eb47a322cfbfb2f1962be6e7248012985ef2805b0d": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5708,6 +5715,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "当工具能提升正确性、完整性或事实依据时，使用工具。",
+      "thinking_budget": 4096
+    },
+    "78e6bdfc5403c665ff66ce4d7108b11a974c24ff21503f5d2dc8f0b4a8fb90e9": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "使用最具体的智能体。只读调研必须只在文件未知时才使用 `scout`。优先由单个智能体负责调查+编辑。仅在默认（`task`）时省略 `agent`；绝不显式指定它。\n专家 `agent` 选择器应位于每个 `tasks[]` 条目内部；绝不把 `agent` 放在顶层。\n共享编辑需要一个集成负责人；同级智能体通过 `write agent://<id>` 协调。在 `context` 中设定接口。每个任务都必须在执行中途跳过构建/lint/测试/格式化；之后再运行一次。",
       "thinking_budget": 4096
     },
     "795bb1d578c287e3be3aaf018d7769549a69a3afafbb072ae014b850e64d4a78": {
@@ -9238,6 +9252,13 @@
       "text": "irc 操作",
       "thinking_budget": 4096
     },
+    "c32c2f0aed87536428a8cfe56b1b970b3e3b1fff6598dbf7cf3c13fa80c50301": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "路径后缀：:50 或 :50- 从第 50 行开始；:50-200 含两端；:50+150 按行数计；:-60 为最后 60 行；逗号连接多个范围（:5-16,960-973）或单行（:19,59）。单个非 raw 范围还会额外显示前 1 行和后 3 行（例如 :50-80 显示 49-83 行）；非 raw 读取（包括逗号列表）可能会补充被截断块的开头/结尾行；只有 :raw 保持精确。:raw 原样输出，不带锚点/前缀；组合 :2-4:raw 或 :raw:2-4 可精确获取这些行；在 :raw 旁边，单独数字即表示那一行（:17:raw），:17-:raw 则从该行起持续到末尾。:conflicts 为每个未解决的合并块列出一行。SVG/SVGZ 默认按文本读取；:img 将 SVG/SVGZ 栅格化为图像，:raw 读取原始内容。光栅图像（PNG、JPEG）无需选择器；:img 会拒绝它们。视频需要 ffmpeg/ffprobe：不带选择器时给出预览网格+元数据，:412 取帧，:1h5m42s/:90s/:01:23 取时间点。",
+      "thinking_budget": 4096
+    },
     "c342a4e8052200c4a4735d6717f07561d42e863c2024513f5e507523ca991703": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -11504,6 +11525,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "绝不使用 shell 工具、grep 或读取其他会话的文件来弄清某个同伴在做什么。直接给对方发消息。",
+      "thinking_budget": 4096
+    },
+    "f207e060744779270cf3221a622200e807d230c5f19a59ab236972a44682f2b4": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天：2026-10-20；当前工作目录：'$PHISTORY_WORKSPACE'。不要在回复中重复此信息。",
       "thinking_budget": 4096
     },
     "f2437ef205b42eebb10e6e4f88d021b53e29fe778d6d9fed0e0cf638bec124cd": {
