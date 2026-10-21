@@ -1388,6 +1388,13 @@
       "text": "`PUT N.=M:` 将包含端点的 N–M 替换为 `+` 正文（单行用 `N.=N`）；`PUT N*:` 替换块 N。\n`PUT <N:`/`PUT >N:` 在 N 之前/之后插入（`<1` 用于开头，`>$` 用于末尾）。`PUT >N*:` 在块 N 之后以同级深度插入；在内部，在收尾处使用 `PUT >M:`。\n`CUT N.=M`/`CUT N*` 删除并捕获，可选择作为 `@name`。\n`PUT <N @name`/`PUT >N @name` 在间隙处粘贴（省略 name 即为匿名 CUT）；`PUT N.=M @name`/`PUT N* @name` 粘贴覆盖范围/块（name 必填）。寄存器粘贴没有正文；命名寄存器跨调用保留。\n`REM` 删除文件；`MV DEST` 在先前的编辑之后重命名（含空格的路径要加引号）。",
       "thinking_budget": 4096
     },
+    "1b648430d811324a012bb7e08ae085fa6f39cbe0244e2cc6f6b8a2914cc4dab4": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "今天是 2026-10-21；当前工作目录为 '$PHISTORY_WORKSPACE'。不要在回复中重复此信息。",
+      "thinking_budget": 4096
+    },
     "1b66586459fb7b678a9e3f99c5283e6a6bbfef67f8fb77ef366de369789d579b": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
