@@ -6760,6 +6760,13 @@
       "text": "send：在文本后追加 Enter；默认 true",
       "thinking_budget": 4096
     },
+    "8eceea23391689e6fb932fdc4c658cdd377d966c9abbed3da37db9d93fdc86cc": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "操作系统：linux 7.0.0-1017-azure",
+      "thinking_budget": 4096
+    },
     "8f349c8c51bdc8168e026ce0f6e10e03a283660a292dbc7bf4de5fbca05e57a1": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",

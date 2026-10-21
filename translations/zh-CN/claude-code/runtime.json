@@ -4106,6 +4106,13 @@
       "text": "将复杂任务拆分为更小、易于管理的步骤",
       "thinking_budget": 4096
     },
+    "3e9dadb21e407b417de156b44c0b4f84cc7db2819daa2fbdad405ad0670d34a1": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "如果只是几次工具调用，或者目标已经明确的查找，就自己动手；不要把你本可以内联执行的检查委派出去。只有当你想要一种不锚定于你自己看法的解读时，才委派审查——这时给它代码，而不是你的结论。一旦委派了某件事，就不要再自己去做；等待结果即可。拿不准时，就不要启动。",
+      "thinking_budget": 4096
+    },
     "3e9f994b186227d596ed4c91b0a8967c8013cc26c795ad929eb7c0495236fe1e": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -4735,6 +4742,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "列表中的对端是存活的，会处理你的消息 —— 没有 \"busy\" 状态；消息会入队，并在接收方的下一轮工具调用时被处理。你的消息会以 `<cross-session-message from=\"...\">` 包装的形式到达。**要回复收到的消息，把它的 `from` 属性复制为你的 `to`。**",
+      "thinking_budget": 4096
+    },
+    "49bb5541b80c27409fcde0984204ddeaf6ce0d6d264ce05a1bd61e06b2efd08d": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当你有可以并行运行的独立工作、当用户提出一个不应阻塞主线的支线任务、或者当回答问题意味着要通读多个文件时，就使用此工具——把这类工作委派出去，你留下的是结论，而不是成堆的文件内容。",
       "thinking_budget": 4096
     },
     "49c252ff5cbf443a4d4fdddf3e8d20ed62ae42e60dcfc119295694bffe88cb55": {
@@ -6974,6 +6988,13 @@
       "text": "Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\n   EOF\n   )\"",
       "thinking_budget": 4096
     },
+    "6f4fd7e743a79115b0470391e4994ffb26b6bdfcdb8cc50f95d613b36d78c5a2": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "新启动一个智能体，成本比看上去的更高。它只知道你写进提示词的内容，你也只能看到它发回的摘要——两次交接都会丢失细节，而且你们谁都无法察觉对方遗漏了什么。你无法旁观它工作，只能等待或取消。它的错误会以和它的发现同样笃定的口吻返回，而拿到你假设的智能体往往会把它确证后交回。同时启动多个，会在用户并未要求的情况下爆发式消耗 token。把这些 token 与它们换来的准确性放在一起权衡：用户要为你本不需要的智能体付费，还要为你因省掉某个智能体而重做的工作再次付费。",
+      "thinking_budget": 4096
+    },
     "6f7558ee50b8226a9f014f869efcf1161be78a0e093fc094ac49f4fdb3b6c9c3": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
@@ -8392,6 +8413,13 @@
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-9",
       "text": "git commit -m \"$(cat <<'EOF'\n   在此填写提交信息。",
+      "thinking_budget": 4096
+    },
+    "8936cd08882670fde8719fd7e8e51580f2204225c0264ae212508de8e35a56d3": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "操作系统版本：Linux 7.0.0-1017-azure",
       "thinking_budget": 4096
     },
     "89468a99650f5c4363b06d341391fa970f49181f54c7db24ca9128a1bf891c80": {
@@ -12715,6 +12743,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "仅用于 action 'str_replace'：要编辑的文档的顶层字符串字段——一个普通键，例如 \"html\"（1-200 字节；不含点、斜杠、方括号、引号、反斜杠、控制字符或不可见的格式字符；不是保留的 __name__ 键）。",
+      "thinking_budget": 4096
+    },
+    "cf940c670fa12bc1f9b632dc65667e2f67c26f744c6bdaa0fdc12a6b72dc0de7": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当你确实要启动一个智能体时，要像对待同级同事那样给它写简报：说明目标以及你已经排除的内容，把值得阅读的文件和文档指给它，而不是把这些内容重新打一遍，并把范围限定得明确而狭窄。这份简报是它仅有的上下文，因此它是你控制上述每一项成本的第一杠杆——如果你写不出一份清晰的简报，就说明你对任务的理解还不足以把它交出去。",
       "thinking_budget": 4096
     },
     "cfc1097599c98048868d03194e62d3fc1efb3c37715a4ef0d848b45fc272fa8b": {
