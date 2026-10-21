@@ -616,6 +616,13 @@
       "text": "不要过早放弃。",
       "thinking_budget": 4096
     },
+    "1ae3a6416715f2ec45850841deb7265c05aa9f87e001e0748b6620a7dc763f54": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "不要重复发送未更改的列表。如果你陷入停滞，且没有任何可用工具能推进任何任务，应告知用户，而不是重新排列同样的待办事项。",
+      "thinking_budget": 4096
+    },
     "1bbd75b6c8cf9844ea04676975a34f14db835fdaee3885f27d6e513fa03db35c": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -1989,6 +1996,13 @@
       "text": "Write 会按字面输出内容，包括所提供的换行符：\\n 保持为 LF，\\r\\n 保持为 CRLF。",
       "thinking_budget": 4096
     },
+    "61bb10a4cfcdc77c698d9db3ff01a24cd32cb38ef41066e52f87ef2f517979f2": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "要调用的技能的确切名称，从当前技能列表中原样复制而来。",
+      "thinking_budget": 4096
+    },
     "62092333bdfeed9fd8d5edd609f4a2896ed3ff9e2f72dabcd79bd469adf1dfc3": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -2001,6 +2015,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "是否在返回前等待任务完成。",
+      "thinking_budget": 4096
+    },
+    "63a6d731ea7eaa60eb87caade9cfb5f44ecd0bfa99b5b4cebef4170a7ac44649": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在执行多步骤任务时，使用此工具维护一个结构化的 TODO 列表。当进度跟踪对当前工作有帮助时，应主动且频繁地使用它。该列表会以实时进度面板的形式展示给用户，因此要让它与你实际完成的情况保持同步。这在包含多次工具调用的长时间调查和实现任务中尤其有用；在计划模式下，应将计划写入计划文件，而不是在这里跟踪。",
       "thinking_budget": 4096
     },
     "63a988bf5a88b25f58ed2fe4c862918dfd3f6c5dae960680be1ba5e75915d436": {
@@ -2435,6 +2456,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "One-shot：仅当理想触发时间落在每小时的 `:00` 或 `:30` 时，触发时间才会**提前** ≤ 90 秒。其他分钟则原样通过。",
+      "thinking_budget": 4096
+    },
+    "780736ee4364955469a3005a60f5776fbd7eaf0248c4965c368455b32ade0150": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "explore：快速代码库探索，具备由提示词强制的只读行为。专门用于探索代码库的快速智能体。当你需要按模式快速查找文件（例如 \"src/**/*.yaml\"）、在代码中搜索关键字（例如 \"数据库连接\"）或回答有关代码库的问题（例如 \"认证模块是如何工作的？\"）时，使用此智能体。调用此智能体时，请指明所需的细致程度：\"quick\" 用于基本搜索，\"medium\" 用于中等程度的探索，\"thorough\" 用于跨多个位置和命名约定的全面分析。任何明显需要超过 3 次搜索查询的只读探索，都应使用此智能体。在调查相互独立的问题时，优先并发启动多个 explore 智能体。\n  工具：Bash, Read, Glob, Grep, FetchURL",
       "thinking_budget": 4096
     },
     "781869cc39f8588366db00a762bf9a747a1f1b6e0cc6037a0a2114b59c9bce52": {
@@ -2885,6 +2913,13 @@
       "text": "按任务类型的行为：",
       "thinking_budget": 4096
     },
+    "91ebe14399f816326d26ef5e80d57e6b64c9acf9c2837b64b82596e3cadfda60": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在撰写最终消息之前，确保列表与你实际所做的相符。",
+      "thinking_budget": 4096
+    },
     "91ecce9d5be99cdf2dbdd8fccbb0d87553218ddf8170577398a5987a3416847b": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3002,6 +3037,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "请勿将 \"Reject\"、\"Reject and Exit\"、\"Revise\" 或 \"Approve\" 用作选项标签——这些名称由系统保留。",
+      "thinking_budget": 4096
+    },
+    "9546031a40a3d58fb231517341f60c4e4d961437c14f08b7d3ad253e468c4195": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "**保持列表最新：**",
       "thinking_budget": 4096
     },
     "9557edcde8d3e22a6b8b96ca1ecd0f9c2000957402c9c93585c6d5a4d34b49a1": {
@@ -3198,6 +3240,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "在最终确定回复之前，重新阅读用户的最新请求，确认你回答的正是那一条——检查每一项明确要求：格式、阈值方向，以及每一个“必须”。",
+      "thinking_budget": 4096
+    },
+    "9dab573737acf8c9886ce1a6d17134137d08c55765eb96b66ca36241c198c467": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在开始一项被跟踪的任务之前，先将其标记为 `in_progress`；工作进行期间，始终保持恰好一项任务处于 `in_progress`。",
       "thinking_budget": 4096
     },
     "9e130585aa3adb9a4fae61bb7408f975e2eb8599303ade37d486233f16a6072d": {
@@ -3660,6 +3709,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "如果模型不确定哪个 id 是当前的（例如在上下文\n  压缩之后），先调用 `CronList`，而不是凭猜测行事。",
+      "thinking_budget": 4096
+    },
+    "b3abbe15681c4f1c0e6733f03d17981be3de3e5445e4fb859fbcd13419c1f174": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "plan：只读的实现规划与架构设计。当父智能体在改动代码之前需要一份逐步实现计划、关键文件识别以及架构权衡分析时，使用此智能体。\n  工具：Read, Glob, Grep, FetchURL",
       "thinking_budget": 4096
     },
     "b41a7fdae203747d120a496cfd64e3831a36b63eb7998526dd29e8f410304331": {
@@ -4831,6 +4887,13 @@
       "text": "覆盖现有文件之前，先执行 Read。",
       "thinking_budget": 4096
     },
+    "e833aa3440a31c70b7cc2073ca55e98c34aebe501b7a778a369928652e96f37d": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "coder：通用软件工程智能体——唯一拥有文件编辑工具的子智能体类型；任何必须修改代码的委派任务都应使用它。将此智能体用于非简单的软件工程工作，这类工作可能需要读取文件、编辑代码、运行命令，并向父智能体返回一份紧凑但技术上完整的总结。\n  工具：Bash, CronCreate, CronDelete, CronList, Edit, EnterPlanMode, ExitPlanMode, Glob, Grep, Read, Skill, TaskList, TaskOutput, TaskStop, TodoList, WaitFor, FetchURL, Write, mcp__*",
+      "thinking_budget": 4096
+    },
     "e839659f549830be35ab2429521506e41fb32539809f7d9817d7d81d2a2f69cd": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5153,6 +5216,13 @@
       "text": "当你处于计划模式、已将计划写入计划文件并准备好接受用户批准时，使用此工具。",
       "thinking_budget": 4096
     },
+    "f76d56c5f6387b25fb85fb5a158c14dbdde80d863bc645391e255609ca1bdd63": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "任务一经完成，就立即将其标记为 `done`，然后再开始下一项。不要把完成操作留到最后批量进行。",
+      "thinking_budget": 4096
+    },
     "f8246332044f7127ace172adf12f8eb0e5a92cd0de701d8ea9d8bc0568b28bea": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5237,6 +5307,13 @@
       "text": "write-goal：帮助用户为 goal 模式制定一个定义明确的 `/goal` 目标——把粗略的意图转化为一份完成契约，包含清晰的终点线、证明、边界和停止规则。当用户请求帮助编写、完善或改进 goa\n   时使用。Path: builtin://write-goal",
       "thinking_budget": 4096
     },
+    "fb4bb9f7b969bb08c767a164f6b43511cac4d045db5f4e6153fa814a1a4e20d2": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "更新可以与你的下一次工具调用放在同一个响应中；它不需要单独占用一个步骤。",
+      "thinking_budget": 4096
+    },
     "fbd27a5714dd07316adcc8a8966fc8398bbb4830b1eecc9e2a3ba2aa47f9dc53": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -5277,6 +5354,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "要等待的后台任务 ID。省略时，只要在调用时正在运行的任一后台任务完成，等待就会立即结束。",
+      "thinking_budget": 4096
+    },
+    "fd99d16f2f842a8031eb7d6b14e6b743b7c3324f1bc450be1a25c660c3bc168f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "在 `TodoList` 中跟踪工作时，要让它与你实际完成的情况保持同步：一项任务一经完成、在开始下一项之前，就立即将其标记为已完成；在撰写最终消息之前，确保列表与你实际做过的事情相符。",
       "thinking_budget": 4096
     },
     "ff667db28576589f9a921b2235721aabaf31f00a7af546e465477d885519347d": {

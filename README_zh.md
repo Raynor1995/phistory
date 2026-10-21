@@ -8,7 +8,7 @@ Phistory 追踪 Claude Code、Codex、DeepSeek Harness、Antigravity、Grok Buil
 
 **从这里开始：** [phistory.cc](https://phistory.cc/)
 
-> 每小时自动检查新版本，归档最近更新于 **2026-10-21 05:13 UTC**。
+> 每小时自动检查新版本，归档最近更新于 **2026-10-21 10:30 UTC**。
 
 ![Phistory prompt diff viewer](docs/screenshot.png)
 
@@ -74,19 +74,19 @@ python -m http.server --directory .phistory-cache/site
 
 ## 抓取状态
 
-最近抓取更新：2026-10-21 05:13 UTC
+最近抓取更新：2026-10-21 10:30 UTC
 
 | Agent | 最新版本 | 版本数 | 快照数 | 最近抓取 |
 | --- | --- | ---: | ---: | --- |
 | Claude Code | [2.1.306 - 2026-10-21](captures/claude-code/2.1.306/variants/default/prompt.md) | 447 | 774 | 2026-10-21 05:13 UTC |
 | Codex CLI | [0.163.0 - 2026-10-15](captures/codex/0.163.0/variants/default/prompt.md) | 105 | 173 | 2026-10-15 23:13 UTC |
 | DeepSeek Harness | [0.2.1-rc.2 - 2026-10-17](captures/dsh/0.2.1-rc.2/variants/default/prompt.md) | 15 | 81 | 2026-10-19 11:10 UTC |
-| Antigravity CLI | [1.4.3 - 2026-10-20](captures/antigravity/1.4.3/variants/default/prompt.md) | 71 | 71 | 2026-10-20 06:29 UTC |
+| Antigravity CLI | [1.4.4 - 2026-10-21](captures/antigravity/1.4.4/variants/default/prompt.md) | 72 | 72 | 2026-10-21 10:30 UTC |
 | Claude Tag | [2026-10-18 - 2026-10-18](captures/claude-tag/2026-10-18/variants/default/prompt.md) | 4 | 4 | 2026-10-18 08:57 UTC |
 | Grokbot | [2026-10-20 - 2026-10-20](captures/grokbot/2026-10-20/variants/default/prompt.md) | 1 | 1 | 2026-10-20 18:10 UTC |
 | Grok Build | [1.0.62 - 2026-10-16](captures/grok/1.0.62/variants/default/prompt.md) | 143 | 143 | 2026-10-16 20:02 UTC |
 | MiniMax Code | [3.1.4 - 2026-10-19](captures/minimax-code/3.1.4/variants/default/prompt.md) | 43 | 43 | 2026-10-19 17:42 UTC |
-| Kimi Code | [2.2.0 - 2026-10-14](captures/kimi-code/2.2.0/variants/default/prompt.md) | 80 | 80 | 2026-10-14 18:50 UTC |
+| Kimi Code | [2.3.0 - 2026-10-21](captures/kimi-code/2.3.0/variants/default/prompt.md) | 81 | 81 | 2026-10-21 10:30 UTC |
 | MiMo Code | [0.1.15 - 2026-09-22](captures/mimo/0.1.15/variants/default/prompt.md) | 15 | 15 | 2026-09-22 19:03 UTC |
 | OpenClaw | [2026.10.5 - 2026-10-18](captures/openclaw/2026.10.5/variants/default/prompt.md) | 85 | 85 | 2026-10-18 21:47 UTC |
 | Hermes Agent | [v2026.9.24 - 2026-09-24](captures/hermes/v2026.9.24/variants/default/prompt.md) | 35 | 35 | 2026-09-24 10:27 UTC |
