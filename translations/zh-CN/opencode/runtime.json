@@ -1281,6 +1281,13 @@
       "text": "任务完成后立即标记为已完成（不要批量标记完成）",
       "thinking_budget": 4096
     },
+    "6150573e89c877662aa2982fba7c8ee35e373fa648ea8caece61851d44f1259b": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "工作目录：$PHISTORY_WORKSPACE\n  工作区根文件夹：/\n  目录是否为 git 仓库：否\n  平台：linux\n  今天的日期：2026 年 10 月 22 日（周四）",
+      "thinking_budget": 4096
+    },
     "63e50e520dd9231acf96e6443c2d6fbfddad43f68aeeec01062eb0dea3419877": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",

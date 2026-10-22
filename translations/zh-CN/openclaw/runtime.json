@@ -749,6 +749,13 @@
       "text": "plugins",
       "thinking_budget": 4096
     },
+    "0d035a7a3d928d0b561ecf179e6bfa07b6ff0522ece37c7e789cc6a0f93a295f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "当前日期：2026-10-22\n时区：UTC\n如需确切的当前时间，请使用 `session_status`。",
+      "thinking_budget": 4096
+    },
     "0d2f1ff684e20ba66812acbc12536ed7ea79bc806501cf3784748c77a9ed74a7": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
@@ -3773,6 +3780,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "<description>使用 Notion CLI/API 处理页面、Markdown 内容、数据源、文件、评论、搜索、Workers，以及原始 API 调用。</description>",
+      "thinking_budget": 4096
+    },
+    "461e6b220749af96b267b73e37b4ea9b14fede3208af3a88b841d1ef44d37909": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "运行时：agent=main | session=agent:main:main | host=runnervmfese6 | repo=$PHISTORY_HOME/.openclaw/workspace | os=Linux 7.0.0-1017-azure (x64) | node=v24.22.1 | active_node=unknown | active_node_identity=unknown | model=phistory/phistory-dummy | default_model=phistory/phistory-dummy | shell=bash",
       "thinking_budget": 4096
     },
     "46384855aeeff8d7f75f603c64e780ab695749f9f0af7639f7cf7e63bf9f378c": {
@@ -6912,6 +6926,13 @@
       "prompt_version": "zh-CN-11",
       "status": "translated",
       "text": "名字和风格确定后，把它们持久化到两处——两个位置都很重要：",
+      "thinking_budget": 4096
+    },
+    "7e4a6f428b0f7b135bbb3297f4cdd73353c0b55814cf92a8a05297c3822d138f": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "[Thu 2026-10-22 14:02 UTC] 请用一句简短的话回复。",
       "thinking_budget": 4096
     },
     "7e644b70d6e5ff14514d30a7c84da6d972c9b2f74753ed1908730d01c314fdef": {
