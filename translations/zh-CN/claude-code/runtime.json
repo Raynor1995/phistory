@@ -15197,6 +15197,13 @@
       "text": "你可以使用 `run_in_background` 参数在后台运行命令。仅当你不需要立即获得结果，并且可以接受命令稍后完成时收到通知，才使用此参数。你无需立即检查输出——命令完成时会收到通知。使用此参数时，无需在命令末尾添加 '&'。",
       "thinking_budget": 4096
     },
+    "f637a2953db85c8a5d104982f13890c3fc912b175a609baad83298f16e9b2b99": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "对于在 PR、issue 或评论中写入的任何 `@name`，GitHub 都会通知其所有者。只有针对你确实想通知的真实登录名，才写出裸露的 `@name`。将角色、占位符和代码（`@human`、`@reviewer`、`@types/node`）放入反引号中，或去掉 `@`，即使是从项目文件中复制的也不例外。",
+      "thinking_budget": 4096
+    },
     "f63dc63f355541c99d064ab2b60e7af09373dc0b56a4e8a8d952d9af8ca7527e": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
