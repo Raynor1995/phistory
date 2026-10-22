@@ -2122,6 +2122,13 @@
       "text": "在此期限（毫秒）后终止 monitor。默认值：36000000（10 小时）。最大值：36000000（10 小时）。",
       "thinking_budget": 4096
     },
+    "3cb31c8d3833db7071a2ffeaf86513d0a7e2ef5898640a863a0301007bfa43be": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "deep-research：以受限的并行度研究查询，交叉核对证据，并撰写带引用的报告\n  使用时机：比较、调查或研究需要有来源依据的论断的问题。 /deep-research，研究这个问题，撰写带引用的报告。\n  绝对路径： /buildkite/builds/buildkite-agent-ci-cpu-cuda-xlarge-84697955c7-s26dw-1/xai/spacexai-checks/crates/codegen/xai-grok-shell/src/session/workflows/deep_research.rhai",
+      "thinking_budget": 4096
+    },
     "3cc75baee770b76521b1a179e298289a818e38fc635b86f78827f39c66382928": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
