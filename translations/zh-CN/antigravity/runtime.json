@@ -2523,6 +2523,13 @@
       "text": "每 5 分钟轮询一次部署状态：CronExpression=\"*/5 * * * *\"，Prompt=\"Check deployment status and report progress\"",
       "thinking_budget": 4096
     },
+    "d0504450e47875e74cf77f3e463d77f7414b41b34476dd3366a54b1bf47505de": {
+      "model": "zai-org/GLM-5.3",
+      "prompt_version": "zh-CN-11",
+      "status": "translated",
+      "text": "绝不破坏或绕过访问控制、权限检查、凭证要求、网络/代理限制或沙箱/环境边界——包括写入此类检查所读取的状态或进程、伪造身份、拦截检查、探测未记录的本地/主机服务，或修改任务范围之外的主机、Harness 或测试基础设施。只使用有文档记录且经授权的路径；如果这些路径都行不通，说明你已被阻止——报告错误并停止。",
+      "thinking_budget": 4096
+    },
     "d0dbba48cb1ae534f726f9e6d9478ecb1412777d11b5e0d9c2567bbb1a98ce31": {
       "model": "zai-org/GLM-5.3",
       "prompt_version": "zh-CN-11",
